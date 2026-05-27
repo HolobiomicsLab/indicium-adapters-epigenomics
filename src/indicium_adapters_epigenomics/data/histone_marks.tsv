@@ -1,0 +1,50 @@
+symbol	aliases	curie	label	type
+H3K4me1	H3K4Me1|H3 K4 me1|H3K4-me1	EpiHist:H3K4me1	histone H3 K4 monomethylation	lysine_methylation
+H3K4me2	H3K4Me2|H3 K4 me2	EpiHist:H3K4me2	histone H3 K4 dimethylation	lysine_methylation
+H3K4me3	H3K4Me3|H3 K4 me3	EpiHist:H3K4me3	histone H3 K4 trimethylation	lysine_methylation
+H3K9me1	H3K9Me1	EpiHist:H3K9me1	histone H3 K9 monomethylation	lysine_methylation
+H3K9me2	H3K9Me2	EpiHist:H3K9me2	histone H3 K9 dimethylation	lysine_methylation
+H3K9me3	H3K9Me3	EpiHist:H3K9me3	histone H3 K9 trimethylation	lysine_methylation
+H3K14ac	H3K14Ac|H3 K14 ac	EpiHist:H3K14ac	histone H3 K14 acetylation	lysine_acetylation
+H3K18ac	H3K18Ac	EpiHist:H3K18ac	histone H3 K18 acetylation	lysine_acetylation
+H3K23ac	H3K23Ac	EpiHist:H3K23ac	histone H3 K23 acetylation	lysine_acetylation
+H3K27me1	H3K27Me1	EpiHist:H3K27me1	histone H3 K27 monomethylation	lysine_methylation
+H3K27me2	H3K27Me2	EpiHist:H3K27me2	histone H3 K27 dimethylation	lysine_methylation
+H3K27me3	H3K27Me3	EpiHist:H3K27me3	histone H3 K27 trimethylation	lysine_methylation
+H3K27ac	H3K27Ac|H3 K27 ac	EpiHist:H3K27ac	histone H3 K27 acetylation	lysine_acetylation
+H3K36me1	H3K36Me1	EpiHist:H3K36me1	histone H3 K36 monomethylation	lysine_methylation
+H3K36me2	H3K36Me2	EpiHist:H3K36me2	histone H3 K36 dimethylation	lysine_methylation
+H3K36me3	H3K36Me3	EpiHist:H3K36me3	histone H3 K36 trimethylation	lysine_methylation
+H3K56ac	H3K56Ac	EpiHist:H3K56ac	histone H3 K56 acetylation	lysine_acetylation
+H3K79me1	H3K79Me1	EpiHist:H3K79me1	histone H3 K79 monomethylation	lysine_methylation
+H3K79me2	H3K79Me2	EpiHist:H3K79me2	histone H3 K79 dimethylation	lysine_methylation
+H3K79me3	H3K79Me3	EpiHist:H3K79me3	histone H3 K79 trimethylation	lysine_methylation
+H3S10ph	H3S10Ph|H3 S10 ph|H3pS10	EpiHist:H3S10ph	histone H3 S10 phosphorylation	serine_phosphorylation
+H3S28ph	H3S28Ph	EpiHist:H3S28ph	histone H3 S28 phosphorylation	serine_phosphorylation
+H3R2me1	H3R2Me1	EpiHist:H3R2me1	histone H3 R2 monomethylation	arginine_methylation
+H3R2me2	H3R2Me2	EpiHist:H3R2me2	histone H3 R2 dimethylation	arginine_methylation
+H3R17me2	H3R17Me2	EpiHist:H3R17me2	histone H3 R17 dimethylation	arginine_methylation
+H4K5ac	H4K5Ac	EpiHist:H4K5ac	histone H4 K5 acetylation	lysine_acetylation
+H4K8ac	H4K8Ac	EpiHist:H4K8ac	histone H4 K8 acetylation	lysine_acetylation
+H4K12ac	H4K12Ac	EpiHist:H4K12ac	histone H4 K12 acetylation	lysine_acetylation
+H4K16ac	H4K16Ac	EpiHist:H4K16ac	histone H4 K16 acetylation	lysine_acetylation
+H4K20me1	H4K20Me1	EpiHist:H4K20me1	histone H4 K20 monomethylation	lysine_methylation
+H4K20me2	H4K20Me2	EpiHist:H4K20me2	histone H4 K20 dimethylation	lysine_methylation
+H4K20me3	H4K20Me3	EpiHist:H4K20me3	histone H4 K20 trimethylation	lysine_methylation
+H4R3me2	H4R3Me2	EpiHist:H4R3me2	histone H4 R3 dimethylation	arginine_methylation
+H2BK5ac	H2BK5Ac	EpiHist:H2BK5ac	histone H2B K5 acetylation	lysine_acetylation
+H2BK12ac	H2BK12Ac	EpiHist:H2BK12ac	histone H2B K12 acetylation	lysine_acetylation
+H2BK20ac	H2BK20Ac	EpiHist:H2BK20ac	histone H2B K20 acetylation	lysine_acetylation
+H2BK120ub	H2BK120Ub|H2Bub1|H2BK120ub1	EpiHist:H2BK120ub	histone H2B K120 monoubiquitination	lysine_ubiquitination
+H2AK5ac	H2AK5Ac	EpiHist:H2AK5ac	histone H2A K5 acetylation	lysine_acetylation
+H2AK119ub	H2AK119Ub|H2Aub1|H2AK119ub1	EpiHist:H2AK119ub	histone H2A K119 monoubiquitination	lysine_ubiquitination
+H2A.Z	H2AZ|H2A-Z|H2afz	UniProt:P0C0S5	Histone H2A.Z	variant
+H2A.X	H2AX|H2A-X|gammaH2AX|γH2AX	UniProt:P16104	Histone H2AX	variant
+H3.3	H3-3|H3F3A|H3F3B	UniProt:P84243	Histone H3.3	variant
+macroH2A	macroH2A1|H2AFY	UniProt:O75367	Core histone macro-H2A.1	variant
+CENP-A	CENPA|CenH3	UniProt:P49450	Histone H3-like centromeric protein A	variant
+5mC	5-methylcytosine|m5C|5-mC	CHEBI:27551	5-methylcytosine	dna_modification
+5hmC	5-hydroxymethylcytosine|5-hmC|5-(hydroxymethyl)cytosine	CHEBI:76792	5-(hydroxymethyl)cytosine	dna_modification
+5fC	5-formylcytosine|5-fC	CHEBI:76794	5-formylcytosine	dna_modification
+5caC	5-carboxylcytosine|5-caC	EpiHist:5caC	5-carboxylcytosine	dna_modification
+6mA	N6-methyladenine|6mdA|N6-methyl-2-deoxyadenosine	EpiHist:6mA	N6-methyladenine	dna_modification

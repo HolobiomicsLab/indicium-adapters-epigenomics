@@ -1,0 +1,605 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix asb:   <http://holobiomicslab.org/asb/> .
+@prefix epi:   <http://holobiomicslab.org/adapters/epigenomics/> .
+
+# v0.1.0 — minimal ASB claim CURIE-format validation only.
+#
+# Pipeline-level RDF validation for epigenomics workflow classes
+# (SO / UBERON / CL / MOD / EFO / OBI node shapes) belongs upstream in the
+# consuming graph store, not in these adapters. See ROADMAP.md.
+#
+# What IS validated here:
+#   - Per-qualifier CURIE prefix constraints on the object/subject slot values
+#     that the three epigenomics adapters emit (BulkEpigenomicsAdapter,
+#     SingleCellEpigenomicsAdapter, MethylationArrayEpigenomicsAdapter).
+#
+# What is NOT validated here:
+#   - Whether a CURIE resolves to a real ontology term (that is a graph-store
+#     responsibility).
+#   - Free-text cluster identifiers or epigenetic-clock names (deliberately
+#     kept loose — see clock_age_estimated_with and enriched_in_cluster below).
+#   - Illumina probe IDs in raw string form; those are carried in xrefs, not
+#     ontology_terms, and checked by the adapter's regex, not SHACL.
+#   - Cross-adapter qualifier-disjointness (enforced by the test suite).
+
+# ---------------------------------------------------------------------------
+# BulkEpigenomicsAdapter — bulk epigenomics claims
+#
+# Covers ChIP-seq / CUT&RUN / CUT&Tag (chromatin binding + histone mark),
+# ATAC-seq / MNase-seq / DNase-seq (chromatin accessibility),
+# WGBS / RRBS / EM-seq (DNA methylation),
+# Hi-C / Micro-C / ChIA-PET / HiChIP (3D chromosome conformation).
+#
+# Qualifier ↔ expected CURIE-prefix mapping:
+#
+#   assayed_with, aligned_with, called_peaks_with,
+#   quantified_methylation_with, normalized_with, tested_with
+#       → EDAM: | OBI: | EFO:   (software / assay-tool / method terms)
+#
+#   sequenced_on
+#       → EFO: | OBI:            (sequencer model / instrument terms)
+#
+#   uses_database, consolidates_dataset
+#       → GEO: | SRA: | ENCODE: | EpiRR: | EGA: | BioProject: |
+#         ArrayExpress: | ENA: | ChIPAtlas: | Cistrome:
+#         (repository / accession namespaces)
+#
+#   bound_by, co_occupies_with
+#       → UniProt:               (TF / chromatin-modifier protein identifiers)
+#
+#   marked_by, enriched_for
+#       → EpiHist: | MOD: | PR: | CHEBI: | UniProt:
+#         (histone marks via local EpiHist: vocabulary in v0.1.0; DNA
+#         modifications under CHEBI:; histone variants under UniProt:)
+#
+#   accessible_in, methylated_in, differentially_methylated_in,
+#   differentially_bound_in, differentially_accessible_in
+#       → CL: | UBERON:          (cell-type / tissue / anatomy identifiers)
+#
+#   interacts_3d_with
+#       → any genomic-feature CURIE (generic CURIE-format check only)
+# ---------------------------------------------------------------------------
+
+epi:BulkEpigenomicsClaimShape a sh:NodeShape ;
+    sh:targetClass asb:Claim ;
+
+    # ------------------------------------------------------------------
+    # assayed_with — epigenomics assay / protocol term
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:assayed_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^OBI:" ]
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^EpiAssay:" ]
+        ) ;
+        sh:message "assayed_with object must be an EDAM:, OBI:, EFO:, or EpiAssay: CURIE" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # aligned_with — alignment tool / reference-genome assembly
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:aligned_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^OBI:" ]
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^EpiAssay:" ]
+        ) ;
+        sh:message "aligned_with object must be an EDAM:, OBI:, EFO:, or EpiAssay: CURIE" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # called_peaks_with — peak-calling tool
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:called_peaks_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^OBI:" ]
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^EpiAssay:" ]
+        ) ;
+        sh:message "called_peaks_with object must be an EDAM:, OBI:, EFO:, or EpiAssay: CURIE" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # quantified_methylation_with — methylation quantification tool
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:quantified_methylation_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^OBI:" ]
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^EpiAssay:" ]
+        ) ;
+        sh:message "quantified_methylation_with object must be an EDAM:, OBI:, EFO:, or EpiAssay: CURIE" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # normalized_with — normalisation method / tool
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:normalized_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^OBI:" ]
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^EpiAssay:" ]
+        ) ;
+        sh:message "normalized_with object must be an EDAM:, OBI:, EFO:, or EpiAssay: CURIE" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # tested_with — statistical test / method tool
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:tested_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^OBI:" ]
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^EpiAssay:" ]
+        ) ;
+        sh:message "tested_with object must be an EDAM:, OBI:, EFO:, or EpiAssay: CURIE" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # sequenced_on — sequencing instrument / platform model
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:sequenced_on ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^OBI:" ]
+        ) ;
+        sh:message "sequenced_on object must be an EFO: or OBI: CURIE (sequencer model)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # uses_database — source database / repository accession namespace
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:uses_database ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^GEO:" ]
+            [ sh:pattern "^SRA:" ]
+            [ sh:pattern "^ENCODE:" ]
+            [ sh:pattern "^EpiRR:" ]
+            [ sh:pattern "^EGA:" ]
+            [ sh:pattern "^BioProject:" ]
+            [ sh:pattern "^ArrayExpress:" ]
+            [ sh:pattern "^ENA:" ]
+            [ sh:pattern "^ChIPAtlas:" ]
+            [ sh:pattern "^Cistrome:" ]
+        ) ;
+        sh:message "uses_database object must be a repository CURIE (GEO:, SRA:, ENCODE:, EpiRR:, EGA:, BioProject:, ArrayExpress:, ENA:, ChIPAtlas:, or Cistrome:)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # consolidates_dataset — dataset accession being consolidated
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:consolidates_dataset ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^GEO:" ]
+            [ sh:pattern "^SRA:" ]
+            [ sh:pattern "^ENCODE:" ]
+            [ sh:pattern "^EpiRR:" ]
+            [ sh:pattern "^EGA:" ]
+            [ sh:pattern "^BioProject:" ]
+            [ sh:pattern "^ArrayExpress:" ]
+            [ sh:pattern "^ENA:" ]
+            [ sh:pattern "^ChIPAtlas:" ]
+            [ sh:pattern "^Cistrome:" ]
+        ) ;
+        sh:message "consolidates_dataset object must be a repository CURIE (GEO:, SRA:, ENCODE:, EpiRR:, EGA:, BioProject:, ArrayExpress:, ENA:, ChIPAtlas:, or Cistrome:)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # bound_by — chromatin-binding protein (TF / architectural protein)
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:bound_by ;
+        sh:datatype xsd:string ;
+        sh:pattern "^UniProt:" ;
+        sh:message "bound_by object must be a UniProt: CURIE (protein identifier)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # co_occupies_with — co-occupancy binding partner
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:co_occupies_with ;
+        sh:datatype xsd:string ;
+        sh:pattern "^UniProt:" ;
+        sh:message "co_occupies_with object must be a UniProt: CURIE (protein identifier)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # marked_by — histone / DNA modification mark
+    # Histone PTM symbols (e.g. H3K27ac) → EpiHist: (local v0.1.0 vocab)
+    # PSI-MOD entries (when available)   → MOD:
+    # Histone variants / protein         → PR: or UniProt:
+    # DNA chemical modifications         → CHEBI:
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:marked_by ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EpiHist:" ]
+            [ sh:pattern "^MOD:" ]
+            [ sh:pattern "^PR:" ]
+            [ sh:pattern "^CHEBI:" ]
+            [ sh:pattern "^UniProt:" ]
+        ) ;
+        sh:message "marked_by object must be an EpiHist:, MOD:, PR:, CHEBI:, or UniProt: CURIE (histone/DNA modification or histone variant)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # enriched_for — histone / DNA modification enrichment target
+    # Same prefix set as marked_by
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:enriched_for ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EpiHist:" ]
+            [ sh:pattern "^MOD:" ]
+            [ sh:pattern "^PR:" ]
+            [ sh:pattern "^CHEBI:" ]
+            [ sh:pattern "^UniProt:" ]
+        ) ;
+        sh:message "enriched_for object must be an EpiHist:, MOD:, PR:, CHEBI:, or UniProt: CURIE (histone/DNA modification or histone variant)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # accessible_in — cell type or tissue where region is accessible
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:accessible_in ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^CL:" ]
+            [ sh:pattern "^UBERON:" ]
+        ) ;
+        sh:message "accessible_in object must be a CL: or UBERON: CURIE (cell type / tissue)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # methylated_in — cell type or tissue where locus is methylated
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:methylated_in ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^CL:" ]
+            [ sh:pattern "^UBERON:" ]
+        ) ;
+        sh:message "methylated_in object must be a CL: or UBERON: CURIE (cell type / tissue)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # differentially_methylated_in — context of differential methylation
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:differentially_methylated_in ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^CL:" ]
+            [ sh:pattern "^UBERON:" ]
+        ) ;
+        sh:message "differentially_methylated_in object must be a CL: or UBERON: CURIE (cell type / tissue)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # differentially_bound_in — context of differential TF binding
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:differentially_bound_in ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^CL:" ]
+            [ sh:pattern "^UBERON:" ]
+        ) ;
+        sh:message "differentially_bound_in object must be a CL: or UBERON: CURIE (cell type / tissue)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # differentially_accessible_in — context of differential accessibility
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:differentially_accessible_in ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^CL:" ]
+            [ sh:pattern "^UBERON:" ]
+        ) ;
+        sh:message "differentially_accessible_in object must be a CL: or UBERON: CURIE (cell type / tissue)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # interacts_3d_with — genomic feature in 3D contact (Hi-C / ChIA-PET)
+    # No strict prefix — accepts any valid CURIE (SO:, ENSEMBL:, RefSeq:,
+    # ENCODE:, custom region identifiers, etc.)
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:interacts_3d_with ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[A-Za-z][A-Za-z0-9-_.]*:[^\\s]+$" ;
+        sh:message "interacts_3d_with object must be a CURIE of the form PREFIX:LOCAL (any genomic-feature namespace)" ;
+    ] .
+
+
+# ---------------------------------------------------------------------------
+# SingleCellEpigenomicsAdapter — single-cell / single-nucleus epigenomics
+#
+# Covers scATAC-seq / snATAC-seq, snmC-seq / sci-MET / snmCAT-seq,
+# scChIP-seq / single-cell CUT&Tag, scNOMe-seq, scHi-C.
+#
+# Qualifier ↔ expected CURIE-prefix mapping:
+#
+#   accessible_in_cell_type, methylated_in_cell_type,
+#   bound_in_cell_type, marker_peak_of_cell_type,
+#   marker_dmr_of_cell_type
+#       → CL:                    (Cell Ontology cell type)
+#
+#   localized_in_spatial_domain
+#       → UBERON:                (anatomy / tissue spatial domain; preferred)
+#
+#   co_accessible_with
+#       → any genomic-feature CURIE (generic CURIE-format check)
+#
+#   enriched_in_cluster
+#       → free-text cluster ID or CURIE; CURIE format accepted, strings also
+#         allowed — kept loose intentionally (cluster IDs are not ontologised)
+# ---------------------------------------------------------------------------
+
+epi:SingleCellEpigenomicsClaimShape a sh:NodeShape ;
+    sh:targetClass asb:Claim ;
+
+    # ------------------------------------------------------------------
+    # accessible_in_cell_type — chromatin-accessible in this cell type
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:accessible_in_cell_type ;
+        sh:datatype xsd:string ;
+        sh:pattern "^CL:" ;
+        sh:message "accessible_in_cell_type object must be a CL: CURIE (Cell Ontology)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # methylated_in_cell_type — locus is methylated in this cell type
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:methylated_in_cell_type ;
+        sh:datatype xsd:string ;
+        sh:pattern "^CL:" ;
+        sh:message "methylated_in_cell_type object must be a CL: CURIE (Cell Ontology)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # bound_in_cell_type — TF / protein is bound in this cell type
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:bound_in_cell_type ;
+        sh:datatype xsd:string ;
+        sh:pattern "^CL:" ;
+        sh:message "bound_in_cell_type object must be a CL: CURIE (Cell Ontology)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # marker_peak_of_cell_type — peak is a marker for this cell type
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:marker_peak_of_cell_type ;
+        sh:datatype xsd:string ;
+        sh:pattern "^CL:" ;
+        sh:message "marker_peak_of_cell_type object must be a CL: CURIE (Cell Ontology)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # marker_dmr_of_cell_type — DMR is a marker for this cell type
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:marker_dmr_of_cell_type ;
+        sh:datatype xsd:string ;
+        sh:pattern "^CL:" ;
+        sh:message "marker_dmr_of_cell_type object must be a CL: CURIE (Cell Ontology)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # localized_in_spatial_domain — spatial transcriptomics / epigenomics
+    # domain; anatomy term preferred
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:localized_in_spatial_domain ;
+        sh:datatype xsd:string ;
+        sh:pattern "^UBERON:" ;
+        sh:message "localized_in_spatial_domain object should be a UBERON: CURIE (anatomy / tissue)" ;
+        sh:severity sh:Warning ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # co_accessible_with — co-accessible genomic feature (coaccessibility
+    # networks from scATAC-seq); any genomic-feature CURIE accepted
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:co_accessible_with ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[A-Za-z][A-Za-z0-9-_.]*:[^\\s]+$" ;
+        sh:message "co_accessible_with object must be a CURIE of the form PREFIX:LOCAL (any genomic-feature namespace)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # enriched_in_cluster — cluster where feature is enriched; kept loose
+    # because cluster IDs (e.g. 'cluster_4', 'leiden_7') are not CURIEs.
+    # Accepts either a CURIE or a plain xsd:string without prefix constraint.
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:enriched_in_cluster ;
+        sh:datatype xsd:string ;
+        sh:message "enriched_in_cluster object should be a cluster identifier string or CURIE" ;
+    ] .
+
+
+# ---------------------------------------------------------------------------
+# MethylationArrayEpigenomicsAdapter — Illumina methylation array (450K / EPIC)
+#
+# Covers Illumina HumanMethylation450, MethylationEPIC v1/v2, and
+# MethylationEPIC mouse arrays plus the full EWAS workflow vocabulary.
+#
+# Qualifier ↔ expected CURIE-prefix mapping:
+#
+#   assayed_with_array, tested_with_array_model
+#       → EFO:                   (array platform / instrument model)
+#
+#   probe_filtered_with, normalized_with_array_method,
+#   corrected_for_cell_composition_with
+#       → EDAM: | EPIQC:         (software operation / local method term)
+#
+#   epigenome_wide_associated_with, differentially_methylated_at_probe
+#       → cg\d{8} (raw probe ID, validated by adapter regex, not SHACL)
+#         | CHEBI: | MOD:        (methylation modification entity / mark)
+#
+#   clock_age_estimated_with
+#       → EPICLOCK: (local placeholder) or free-text; kept loose
+#
+#   all other qualifier values: generic CURIE-format check
+# ---------------------------------------------------------------------------
+
+epi:MethylationArrayEpigenomicsClaimShape a sh:NodeShape ;
+    sh:targetClass asb:Claim ;
+
+    # ------------------------------------------------------------------
+    # assayed_with_array — array model / platform
+    # No verified EFO/OBI CURIEs for HumanMethylation450 / MethylationEPIC
+    # as of v0.1.0; the adapter emits local ``EpiAssay:`` CURIEs.
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:assayed_with_array ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^OBI:" ]
+            [ sh:pattern "^EpiAssay:" ]
+        ) ;
+        sh:message "assayed_with_array object must be an EFO:, OBI:, or EpiAssay: CURIE (array platform model)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # tested_with_array_model — statistical test instrument-model pairing
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:tested_with_array_model ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EFO:" ]
+            [ sh:pattern "^OBI:" ]
+            [ sh:pattern "^EpiAssay:" ]
+        ) ;
+        sh:message "tested_with_array_model object must be an EFO:, OBI:, or EpiAssay: CURIE (array platform model)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # probe_filtered_with — probe-filtering software / method
+    # EDAM operations preferred; EPIQC: for local method terms without an
+    # EDAM CURIE (e.g. EPIQC:minfi-detection-p-filter)
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:probe_filtered_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^EPIQC:" ]
+        ) ;
+        sh:message "probe_filtered_with object must be an EDAM: or EPIQC: CURIE (software / method)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # normalized_with_array_method — array-specific normalisation method
+    # e.g. NOOB, BMIQ, SWAN, funnorm (minfi), SeSAMe, ChAMP, RnBeads
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:normalized_with_array_method ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^EPIQC:" ]
+        ) ;
+        sh:message "normalized_with_array_method object must be an EDAM: or EPIQC: CURIE (software / method)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # corrected_for_cell_composition_with — cell-composition deconvolution
+    # method (e.g. Houseman / IDOL reference-based approaches)
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:corrected_for_cell_composition_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^EDAM:" ]
+            [ sh:pattern "^EPIQC:" ]
+        ) ;
+        sh:message "corrected_for_cell_composition_with object must be an EDAM: or EPIQC: CURIE (deconvolution method)" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # epigenome_wide_associated_with — EWAS hit linkage
+    # When the object is an ontologised modification (not a raw probe ID):
+    # CHEBI: for the methylation chemical entity, MOD: for the PTM term.
+    # Raw cg-probe IDs (cg\d{8}) are handled by the adapter's regex and
+    # stored in xrefs only — they are NOT expected here as CURIEs.
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:epigenome_wide_associated_with ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^CHEBI:" ]
+            [ sh:pattern "^MOD:" ]
+            [ sh:pattern "^[A-Za-z][A-Za-z0-9-_.]*:[^\\s]+$" ]
+        ) ;
+        sh:message "epigenome_wide_associated_with object must be a CHEBI:, MOD:, or other valid CURIE" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # differentially_methylated_at_probe — DMP / DMR linkage
+    # Same prefix options as epigenome_wide_associated_with above
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:differentially_methylated_at_probe ;
+        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:pattern "^CHEBI:" ]
+            [ sh:pattern "^MOD:" ]
+            [ sh:pattern "^[A-Za-z][A-Za-z0-9-_.]*:[^\\s]+$" ]
+        ) ;
+        sh:message "differentially_methylated_at_probe object must be a CHEBI:, MOD:, or other valid CURIE" ;
+    ] ;
+
+    # ------------------------------------------------------------------
+    # clock_age_estimated_with — epigenetic-age clock (Horvath, Hannum,
+    # GrimAge, PhenoAge, DunedinPACE, etc.)
+    # EPICLOCK: is a local placeholder namespace for clock terms until a
+    # stable upstream registry is chosen. Free-text also accepted (Warning
+    # severity) so existing claims using plain strings are not rejected.
+    # ------------------------------------------------------------------
+    sh:property [
+        sh:path epi:clock_age_estimated_with ;
+        sh:datatype xsd:string ;
+        sh:message "clock_age_estimated_with object should be an EPICLOCK: CURIE or a recognised clock name string" ;
+        sh:severity sh:Warning ;
+    ] .

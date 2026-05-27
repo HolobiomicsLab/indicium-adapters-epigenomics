@@ -1,0 +1,327 @@
+# Built by build_epirr_index.py — sourced from the ENCODE ReferenceEpigenome endpoint after EBI retired the EpiRR JSON API. Refresh before each release.
+epirr_id	assay	biosample	organism_curie	consortium
+IHECRE00004703	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	upper lobe of left lung	NCBITaxon:9606	ENCODE
+IHECRE00004654	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	esophagus squamous epithelium	NCBITaxon:9606	ENCODE
+IHECRE00004682	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	tibial artery	NCBITaxon:9606	ENCODE
+IHECRE00004708	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	Peyer's patch	NCBITaxon:9606	ENCODE
+IHECRE00004704	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	breast epithelium	NCBITaxon:9606	ENCODE
+IHECRE00004701	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	tibial nerve	NCBITaxon:9606	ENCODE
+IHECRE00004668	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	gastroesophageal sphincter	NCBITaxon:9606	ENCODE
+IHECRE00004699	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	stomach	NCBITaxon:9606	ENCODE
+IHECRE00004665	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	esophagus muscularis mucosa	NCBITaxon:9606	ENCODE
+IHECRE00004672	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	right atrium auricular region	NCBITaxon:9606	ENCODE
+IHECRE00004660	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	esophagus squamous epithelium	NCBITaxon:9606	ENCODE
+IHECRE00004675	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	suprapubic skin	NCBITaxon:9606	ENCODE
+IHECRE00004695	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	sigmoid colon	NCBITaxon:9606	ENCODE
+IHECRE00004669	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|small RNA-seq|total RNA-seq	prostate gland	NCBITaxon:9606	ENCODE
+IHECRE00004647	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	spleen	NCBITaxon:9606	ENCODE
+IHECRE00004718	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	stomach	NCBITaxon:9606	ENCODE
+IHECRE00004677	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	foreskin fibroblast	NCBITaxon:9606	ENCODE
+IHECRE00004643	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	upper lobe of left lung	NCBITaxon:9606	ENCODE
+IHECRE00004716	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	esophagus muscularis mucosa	NCBITaxon:9606	ENCODE
+IHECRE00004688	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|small RNA-seq|total RNA-seq	uterus	NCBITaxon:9606	ENCODE
+IHECRE00004714	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|total RNA-seq	heart left ventricle	NCBITaxon:9606	ENCODE
+IHECRE00004715	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|small RNA-seq|total RNA-seq	testis	NCBITaxon:9606	ENCODE
+IHECRE00004719	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|total RNA-seq	tibial nerve	NCBITaxon:9606	ENCODE
+IHECRE00004717	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|total RNA-seq	thyroid gland	NCBITaxon:9606	ENCODE
+IHECRE00004702	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|small RNA-seq	BJ	NCBITaxon:9606	ENCODE
+IHECRE00004663	Control ChIP-seq|DNase-seq|Histone ChIP-seq|total RNA-seq	H7	NCBITaxon:9606	ENCODE
+IHECRE00004638	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	bronchial epithelial cell	NCBITaxon:9606	ENCODE
+IHECRE00003711	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|total RNA-seq	cardiac muscle cell	NCBITaxon:9606	ENCODE
+IHECRE00004649	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|small RNA-seq|total RNA-seq	right lobe of liver	NCBITaxon:9606	ENCODE
+IHECRE00004644	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|small RNA-seq	SK-N-SH	NCBITaxon:9606	ENCODE
+IHECRE00004634	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	gastrocnemius medialis	NCBITaxon:9606	ENCODE
+IHECRE00004684	Control ChIP-seq|DNase-seq|Histone ChIP-seq	tibial artery	NCBITaxon:9606	ENCODE
+IHECRE00004705	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	ascending aorta	NCBITaxon:9606	ENCODE
+IHECRE00004711	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	stomach	NCBITaxon:9606	ENCODE
+IHECRE00004624	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	esophagus muscularis mucosa	NCBITaxon:9606	ENCODE
+IHECRE00004632	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|small RNA-seq|total RNA-seq	vagina	NCBITaxon:9606	ENCODE
+IHECRE00004709	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	Peyer's patch	NCBITaxon:9606	ENCODE
+IHECRE00004696	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	ascending aorta	NCBITaxon:9606	ENCODE
+IHECRE00004655	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|total RNA-seq	tibial nerve	NCBITaxon:9606	ENCODE
+IHECRE00004679	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	gastroesophageal sphincter	NCBITaxon:9606	ENCODE
+IHECRE00004671	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	spleen	NCBITaxon:9606	ENCODE
+IHECRE00004657	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	body of pancreas	NCBITaxon:9606	ENCODE
+IHECRE00004681	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	esophagus squamous epithelium	NCBITaxon:9606	ENCODE
+IHECRE00004666	Control ChIP-seq|DNase-seq|Histone ChIP-seq	cardiac myoblast	NCBITaxon:9606	ENCODE
+IHECRE00004674	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	breast epithelium	NCBITaxon:9606	ENCODE
+IHECRE00004664	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|total RNA-seq	heart left ventricle	NCBITaxon:9606	ENCODE
+IHECRE00004650	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	sigmoid colon	NCBITaxon:9606	ENCODE
+IHECRE00004686	Control ChIP-seq|DNase-seq|Histone ChIP-seq	cardiovascular progenitor cell	NCBITaxon:9606	ENCODE
+IHECRE00004678	Control ChIP-seq|DNase-seq|Histone ChIP-seq	cardiac muscle cell	NCBITaxon:9606	ENCODE
+IHECRE00004628	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|polyA plus RNA-seq|small RNA-seq	SK-N-SH	NCBITaxon:9606	ENCODE
+IHECRE00004658	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|polyA plus RNA-seq|total RNA-seq	HCT116	NCBITaxon:9606	ENCODE
+IHECRE00004662	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	neutrophil	NCBITaxon:9606	ENCODE
+IHECRE00004683	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	transverse colon	NCBITaxon:9606	ENCODE
+IHECRE00004680	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|small RNA-seq	AG04450	NCBITaxon:9606	ENCODE
+IHECRE00004648	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|small RNA-seq|total RNA-seq	adrenal gland	NCBITaxon:9606	ENCODE
+IHECRE00004690	Control ChIP-seq|Histone ChIP-seq|total RNA-seq	mononuclear cell	NCBITaxon:9606	ENCODE
+IHECRE00004707	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	kidney epithelial cell	NCBITaxon:9606	ENCODE
+IHECRE00004645	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	fibroblast of mammary gland	NCBITaxon:9606	ENCODE
+IHECRE00004670	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	GM06990	NCBITaxon:9606	ENCODE
+IHECRE00004698	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	Caco-2	NCBITaxon:9606	ENCODE
+IHECRE00004652	Control ChIP-seq|Histone ChIP-seq|polyA plus RNA-seq	placenta	NCBITaxon:10090	ENCODE
+IHECRE00004625	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	embryonic fibroblast	NCBITaxon:10090	ENCODE
+IHECRE00004697	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	olfactory bulb	NCBITaxon:10090	ENCODE
+IHECRE00004642	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	bone marrow	NCBITaxon:10090	ENCODE
+IHECRE00004706	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	cortical plate	NCBITaxon:10090	ENCODE
+IHECRE00004630	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	bone marrow macrophage	NCBITaxon:10090	ENCODE
+IHECRE00004661	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	thyroid gland	NCBITaxon:9606	ENCODE
+IHECRE00004692	Control ChIP-seq|Histone ChIP-seq|polyA plus RNA-seq	brown adipose tissue	NCBITaxon:10090	ENCODE
+IHECRE00001827	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	cerebellum	NCBITaxon:10090	ENCODE
+IHECRE00003703	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	limb	NCBITaxon:10090	ENCODE
+IHECRE00003701	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	embryonic facial prominence	NCBITaxon:10090	ENCODE
+IHECRE00004633	Control ChIP-seq|Histone ChIP-seq	ACC112	NCBITaxon:9606	ENCODE
+IHECRE00004639	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	NCI-H929	NCBITaxon:9606	ENCODE
+IHECRE00004689	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	KMS-11	NCBITaxon:9606	ENCODE
+IHECRE00004641	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|total RNA-seq	thyroid gland	NCBITaxon:9606	ENCODE
+IHECRE00004631	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	thyroid gland	NCBITaxon:9606	ENCODE
+IHECRE00004629	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	gastrocnemius medialis	NCBITaxon:9606	ENCODE
+IHECRE00004636	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	gastrocnemius medialis	NCBITaxon:9606	ENCODE
+IHECRE00004622	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq	body of pancreas	NCBITaxon:9606	ENCODE
+IHECRE00004656	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq	body of pancreas	NCBITaxon:9606	ENCODE
+IHECRE00004640	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	thoracic aorta	NCBITaxon:9606	ENCODE
+IHECRE00004700	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|total RNA-seq	thoracic aorta	NCBITaxon:9606	ENCODE
+IHECRE00004637	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|total RNA-seq	adrenal gland	NCBITaxon:9606	ENCODE
+IHECRE00004646	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	adrenal gland	NCBITaxon:9606	ENCODE
+IHECRE00004676	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	A549	NCBITaxon:9606	ENCODE
+IHECRE00004635	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	smooth muscle cell	NCBITaxon:9606	ENCODE
+IHECRE00004673	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	SU-DHL-6	NCBITaxon:9606	ENCODE
+IHECRE00003704	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	SK-N-MC	NCBITaxon:9606	ENCODE
+IHECRE00004626	Control ChIP-seq|Histone ChIP-seq	radial glial cell	NCBITaxon:9606	ENCODE
+IHECRE00003706	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	PC-9	NCBITaxon:9606	ENCODE
+IHECRE00003709	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	PC-3	NCBITaxon:9606	ENCODE
+ENCSR940YLF	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	parathyroid adenoma	NCBITaxon:9606	ENCODE
+IHECRE00001856	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|small RNA-seq|total RNA-seq	OCI-LY7	NCBITaxon:9606	ENCODE
+IHECRE00004691	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	OCI-LY3	NCBITaxon:9606	ENCODE
+IHECRE00004627	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	OCI-LY1	NCBITaxon:9606	ENCODE
+IHECRE00004712	Control ChIP-seq|Histone ChIP-seq	neuroepithelial stem cell	NCBITaxon:9606	ENCODE
+IHECRE00004667	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|small RNA-seq	neural cell	NCBITaxon:9606	ENCODE
+IHECRE00003705	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	MM.1S	NCBITaxon:9606	ENCODE
+IHECRE00004651	Control ChIP-seq|Histone ChIP-seq	mid-neurogenesis radial glial cells	NCBITaxon:9606	ENCODE
+IHECRE00004623	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	Loucy	NCBITaxon:9606	ENCODE
+IHECRE00004653	Control ChIP-seq|Histone ChIP-seq	KOPT-K1	NCBITaxon:9606	ENCODE
+IHECRE00001791	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	neural tube	NCBITaxon:10090	ENCODE
+IHECRE00001828	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	embryonic facial prominence	NCBITaxon:10090	ENCODE
+IHECRE00001859	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	A549	NCBITaxon:9606	ENCODE
+IHECRE00004693	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	DOHH2	NCBITaxon:9606	ENCODE
+IHECRE00001817	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	limb	NCBITaxon:10090	ENCODE
+IHECRE00003710	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	GM23338	NCBITaxon:9606	ENCODE
+IHECRE00001780	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	liver	NCBITaxon:10090	ENCODE
+IHECRE00001795	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	forebrain	NCBITaxon:10090	ENCODE
+IHECRE00001815	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	midbrain	NCBITaxon:10090	ENCODE
+IHECRE00001818	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	hindbrain	NCBITaxon:10090	ENCODE
+IHECRE00003700	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	H9	NCBITaxon:9606	ENCODE
+IHECRE00001854	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	GM23248	NCBITaxon:9606	ENCODE
+IHECRE00001845	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	embryonic facial prominence	NCBITaxon:10090	ENCODE
+IHECRE00001772	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	embryonic facial prominence	NCBITaxon:10090	ENCODE
+IHECRE00001831	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	embryonic facial prominence	NCBITaxon:10090	ENCODE
+IHECRE00001836	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	neural tube	NCBITaxon:10090	ENCODE
+IHECRE00001861	Control ChIP-seq|DNase-seq|Histone ChIP-seq|small RNA-seq|total RNA-seq	Karpas-422	NCBITaxon:9606	ENCODE
+IHECRE00001832	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	embryonic facial prominence	NCBITaxon:10090	ENCODE
+IHECRE00001794	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	neural tube	NCBITaxon:10090	ENCODE
+IHECRE00001784	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	neural tube	NCBITaxon:10090	ENCODE
+IHECRE00001842	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	neural tube	NCBITaxon:10090	ENCODE
+IHECRE00003708	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00001852	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	hepatocyte	NCBITaxon:9606	ENCODE
+IHECRE00003698	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	forebrain	NCBITaxon:10090	ENCODE
+IHECRE00003712	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	midbrain	NCBITaxon:10090	ENCODE
+IHECRE00003697	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	hindbrain	NCBITaxon:10090	ENCODE
+IHECRE00001000	Control ChIP-seq|Histone ChIP-seq|RNA microarray	ES-I3	NCBITaxon:9606	Roadmap
+IHECRE00001797	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	ES-Bruce4	NCBITaxon:10090	ENCODE
+IHECRE00001813	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00001884	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	fibroblast of dermis	NCBITaxon:9606	ENCODE
+IHECRE00001885	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|small RNA-seq|total RNA-seq	osteoblast	NCBITaxon:9606	ENCODE
+IHECRE00003713	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	bipolar neuron	NCBITaxon:9606	ENCODE
+IHECRE00001860	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq	DND-41	NCBITaxon:9606	ENCODE
+IHECRE00000936	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	right cardiac atrium	NCBITaxon:9606	Roadmap
+IHECRE00000964	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	lung	NCBITaxon:9606	Roadmap
+IHECRE00001031	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	liver	NCBITaxon:9606	Roadmap
+IHECRE00000988	Control ChIP-seq|DNase-seq|Histone ChIP-seq	placenta	NCBITaxon:9606	Roadmap
+IHECRE00000927	Control ChIP-seq|DNase-seq|Histone ChIP-seq	adrenal gland	NCBITaxon:9606	Roadmap
+IHECRE00001035	Control ChIP-seq|Histone ChIP-seq|RRBS|microRNA-seq|polyA plus RNA-seq	endocrine pancreas	NCBITaxon:9606	Roadmap
+IHECRE00000928	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	ovary	NCBITaxon:9606	Roadmap
+IHECRE00001045	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|RRBS	lung	NCBITaxon:9606	Roadmap
+IHECRE00001047	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|RRBS	kidney	NCBITaxon:9606	Roadmap
+IHECRE00000924	Control ChIP-seq|Histone ChIP-seq	amnion	NCBITaxon:9606	Roadmap
+IHECRE00000953	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	stomach	NCBITaxon:9606	Roadmap
+IHECRE00001030	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	esophagus	NCBITaxon:9606	Roadmap
+IHECRE00000929	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	duodenal mucosa	NCBITaxon:9606	Roadmap
+IHECRE00000982	Control ChIP-seq|Histone ChIP-seq|RRBS	mucosa of stomach	NCBITaxon:9606	Roadmap
+IHECRE00000966	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	mucosa of rectum	NCBITaxon:9606	Roadmap
+IHECRE00000947	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	mucosa of rectum	NCBITaxon:9606	Roadmap
+IHECRE00000931	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	colonic mucosa	NCBITaxon:9606	Roadmap
+IHECRE00001025	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	sigmoid colon	NCBITaxon:9606	Roadmap
+IHECRE00000983	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	small intestine	NCBITaxon:9606	Roadmap
+IHECRE00000987	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	large intestine	NCBITaxon:9606	Roadmap
+IHECRE00000949	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	small intestine	NCBITaxon:9606	Roadmap
+IHECRE00000993	Control ChIP-seq|DNase-seq|Histone ChIP-seq	stomach	NCBITaxon:9606	Roadmap
+IHECRE00000945	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	stomach smooth muscle	NCBITaxon:9606	Roadmap
+IHECRE00000944	Control ChIP-seq|Histone ChIP-seq|RRBS	rectal smooth muscle tissue	NCBITaxon:9606	Roadmap
+IHECRE00001043	Control ChIP-seq|Histone ChIP-seq|RRBS	muscle layer of colon	NCBITaxon:9606	Roadmap
+IHECRE00000960	Control ChIP-seq|Histone ChIP-seq	muscle layer of duodenum	NCBITaxon:9606	Roadmap
+IHECRE00000980	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	heart right ventricle	NCBITaxon:9606	Roadmap
+IHECRE00000957	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	heart left ventricle	NCBITaxon:9606	Roadmap
+IHECRE00001049	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|RRBS	heart	NCBITaxon:9606	Roadmap
+IHECRE00000995	Control ChIP-seq|DNase-seq|Histone ChIP-seq	muscle of leg	NCBITaxon:9606	Roadmap
+IHECRE00000925	Control ChIP-seq|DNase-seq|Histone ChIP-seq	muscle of trunk	NCBITaxon:9606	Roadmap
+IHECRE00000950	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	skeletal muscle tissue	NCBITaxon:9606	Roadmap
+IHECRE00000965	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	skeletal muscle tissue	NCBITaxon:9606	Roadmap
+IHECRE00001027	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	psoas muscle	NCBITaxon:9606	Roadmap
+IHECRE00000963	Control ChIP-seq|Histone ChIP-seq	subcutaneous abdominal adipose tissue	NCBITaxon:9606	Roadmap
+IHECRE00001053	Control ChIP-seq|DNase-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|RNA microarray|RRBS	brain	NCBITaxon:9606	Roadmap
+IHECRE00001032	Control ChIP-seq|DNase-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	brain	NCBITaxon:9606	Roadmap
+IHECRE00001029	Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	germinal matrix	NCBITaxon:9606	Roadmap
+IHECRE00000948	Control ChIP-seq|Histone ChIP-seq|RRBS	dorsolateral prefrontal cortex	NCBITaxon:9606	Roadmap
+IHECRE00001048	Control ChIP-seq|Histone ChIP-seq|RRBS	angular gyrus	NCBITaxon:9606	Roadmap
+IHECRE00000955	Control ChIP-seq|Histone ChIP-seq|RRBS	temporal lobe	NCBITaxon:9606	Roadmap
+IHECRE00000952	Control ChIP-seq|Histone ChIP-seq|RRBS	cingulate gyrus	NCBITaxon:9606	Roadmap
+IHECRE00000991	Control ChIP-seq|Histone ChIP-seq|RRBS	caudate nucleus	NCBITaxon:9606	Roadmap
+IHECRE00000986	Control ChIP-seq|Histone ChIP-seq|RRBS	substantia nigra	NCBITaxon:9606	Roadmap
+IHECRE00000940	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	layer of hippocampus	NCBITaxon:9606	Roadmap
+IHECRE00000934	Control ChIP-seq|DNase-seq|Histone ChIP-seq	thymus	NCBITaxon:9606	Roadmap
+IHECRE00000969	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	thymus	NCBITaxon:9606	Roadmap
+IHECRE00000939	Control ChIP-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	neurosphere	NCBITaxon:9606	Roadmap
+IHECRE00000933	Control ChIP-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	neurosphere	NCBITaxon:9606	Roadmap
+IHECRE00000959	Control ChIP-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	myoepithelial cell of mammary gland	NCBITaxon:9606	Roadmap
+IHECRE00000937	Control ChIP-seq|DNase-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	mammary epithelial cell	NCBITaxon:9606	Roadmap
+IHECRE00000994	Control ChIP-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	foreskin keratinocyte	NCBITaxon:9606	Roadmap
+IHECRE00000946	Control ChIP-seq|DNase-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	foreskin keratinocyte	NCBITaxon:9606	Roadmap
+IHECRE00001026	Control ChIP-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	foreskin melanocyte	NCBITaxon:9606	Roadmap
+IHECRE00000975	Control ChIP-seq|DNase-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	foreskin melanocyte	NCBITaxon:9606	Roadmap
+IHECRE00001033	Control ChIP-seq|DNase-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	foreskin fibroblast	NCBITaxon:9606	Roadmap
+IHECRE00000956	Control ChIP-seq|DNase-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	foreskin fibroblast	NCBITaxon:9606	Roadmap
+IHECRE00000977	Control ChIP-seq|Histone ChIP-seq	skeletal muscle satellite cell	NCBITaxon:9606	Roadmap
+IHECRE00000968	Control ChIP-seq|Histone ChIP-seq	adipocyte	NCBITaxon:9606	Roadmap
+IHECRE00001040	Control ChIP-seq|Histone ChIP-seq	mesenchymal stem cell	NCBITaxon:9606	Roadmap
+IHECRE00000951	Control ChIP-seq|Histone ChIP-seq|RRBS	neutrophil	NCBITaxon:9606	Roadmap
+IHECRE00000979	Control ChIP-seq|DNase-seq|Histone ChIP-seq	natural killer cell	NCBITaxon:9606	Roadmap
+IHECRE00000976	Control ChIP-seq|DNase-seq|Histone ChIP-seq	B cell	NCBITaxon:9606	Roadmap
+IHECRE00000926	Control ChIP-seq|Histone ChIP-seq	common myeloid progenitor, CD34-positive	NCBITaxon:9606	Roadmap
+IHECRE00001044	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|RRBS|WGBS|polyA plus RNA-seq	common myeloid progenitor, CD34-positive	NCBITaxon:9606	Roadmap
+IHECRE00000989	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|RRBS	common myeloid progenitor, CD34-positive	NCBITaxon:9606	Roadmap
+IHECRE00000932	Control ChIP-seq|Histone ChIP-seq|RRBS	common myeloid progenitor, CD34-positive	NCBITaxon:9606	Roadmap
+IHECRE00001051	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	B cell	NCBITaxon:9606	Roadmap
+IHECRE00000935	Control ChIP-seq|DNase-seq|Histone ChIP-seq	CD14-positive monocyte	NCBITaxon:9606	Roadmap
+IHECRE00001034	Control ChIP-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	CD8-positive, alpha-beta T cell	NCBITaxon:9606	Roadmap
+IHECRE00001036	Control ChIP-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	naive thymus-derived CD4-positive, alpha-beta T cell	NCBITaxon:9606	Roadmap
+IHECRE00000967	Control ChIP-seq|Histone ChIP-seq	CD8-positive, alpha-beta memory T cell	NCBITaxon:9606	Roadmap
+IHECRE00001052	Control ChIP-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|microRNA-seq|polyA plus RNA-seq	CD4-positive, alpha-beta memory T cell	NCBITaxon:9606	Roadmap
+IHECRE00000978	Control ChIP-seq|Histone ChIP-seq	CD4-positive, alpha-beta memory T cell	NCBITaxon:9606	Roadmap
+IHECRE00000958	Control ChIP-seq|Histone ChIP-seq	T-helper 17 cell	NCBITaxon:9606	Roadmap
+IHECRE00001001	Control ChIP-seq|Histone ChIP-seq	CD4-positive, alpha-beta T cell	NCBITaxon:9606	Roadmap
+IHECRE00000984	Control ChIP-seq|Histone ChIP-seq	naive thymus-derived CD4-positive, alpha-beta T cell	NCBITaxon:9606	Roadmap
+IHECRE00000973	Control ChIP-seq|Histone ChIP-seq	CD4-positive, alpha-beta T cell	NCBITaxon:9606	Roadmap
+IHECRE00000971	Control ChIP-seq|Histone ChIP-seq	CD4-positive, CD25-positive, alpha-beta regulatory T cell	NCBITaxon:9606	Roadmap
+IHECRE00001046	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|RRBS	T-cell	NCBITaxon:9606	Roadmap
+IHECRE00000954	Control ChIP-seq|Histone ChIP-seq	effector memory CD4-positive, alpha-beta T cell	NCBITaxon:9606	Roadmap
+IHECRE00000930	Control ChIP-seq|DNase-seq|Histone ChIP-seq	T-cell	NCBITaxon:9606	Roadmap
+IHECRE00001024	Control ChIP-seq|Histone ChIP-seq|microRNA-seq|polyA plus RNA-seq	peripheral blood mononuclear cell	NCBITaxon:9606	Roadmap
+IHECRE00000943	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq|small RNA-seq	mesenchymal stem cell	NCBITaxon:9606	Roadmap
+IHECRE00000974	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq|small RNA-seq	trophoblast cell	NCBITaxon:9606	Roadmap
+IHECRE00001023	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq|small RNA-seq	mesendoderm	NCBITaxon:9606	Roadmap
+IHECRE00001039	Control ChIP-seq|Histone ChIP-seq|RRBS|WGBS|polyA plus RNA-seq	endodermal cell	NCBITaxon:9606	Roadmap
+IHECRE00000970	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	ectodermal cell	NCBITaxon:9606	Roadmap
+IHECRE00000981	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	mesodermal cell	NCBITaxon:9606	Roadmap
+IHECRE00001038	Control ChIP-seq|Histone ChIP-seq|RRBS	neuron	NCBITaxon:9606	Roadmap
+IHECRE00000990	Control ChIP-seq|Histone ChIP-seq|RRBS	neuronal stem cell	NCBITaxon:9606	Roadmap
+IHECRE00000992	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq|small RNA-seq	neuronal stem cell	NCBITaxon:9606	Roadmap
+IHECRE00000997	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|WGBS	iPS DF 19.11	NCBITaxon:9606	Roadmap
+IHECRE00000999	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|WGBS	iPS DF 6.9	NCBITaxon:9606	Roadmap
+IHECRE00000996	Control ChIP-seq|Histone ChIP-seq|RRBS	iPS-15b	NCBITaxon:9606	Roadmap
+IHECRE00001055	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	iPS-18c	NCBITaxon:9606	Roadmap
+IHECRE00001054	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	iPS-20b	NCBITaxon:9606	Roadmap
+IHECRE00000962	Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	UCSF-4	NCBITaxon:9606	Roadmap
+IHECRE00001050	Control ChIP-seq|DNase-seq|Histone ChIP-seq|MRE-seq|MeDIP-seq|RRBS|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq	H1	NCBITaxon:9606	Roadmap
+IHECRE00000961	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	HUES64	NCBITaxon:9606	Roadmap
+IHECRE00001037	Control ChIP-seq|Histone ChIP-seq|RRBS	HUES48	NCBITaxon:9606	Roadmap
+IHECRE00000941	Control ChIP-seq|Histone ChIP-seq|RRBS	HUES6	NCBITaxon:9606	Roadmap
+IHECRE00000985	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RRBS|WGBS	H9	NCBITaxon:9606	Roadmap
+IHECRE00000998	Control ChIP-seq|Histone ChIP-seq|RNA microarray|RRBS	H7	NCBITaxon:9606	Roadmap
+IHECRE00001041	Control ChIP-seq|DNase-seq|Histone ChIP-seq|RNA microarray|WGBS	IMR-90	NCBITaxon:9606	Roadmap
+IHECRE00001785	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|total RNA-seq	forebrain	NCBITaxon:10090	ENCODE
+IHECRE00001774	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|total RNA-seq	midbrain	NCBITaxon:10090	ENCODE
+IHECRE00001833	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|total RNA-seq	hindbrain	NCBITaxon:10090	ENCODE
+IHECRE00001811	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	hindbrain	NCBITaxon:10090	ENCODE
+IHECRE00001844	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	forebrain	NCBITaxon:10090	ENCODE
+IHECRE00001821	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	midbrain	NCBITaxon:10090	ENCODE
+IHECRE00001847	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	midbrain	NCBITaxon:10090	ENCODE
+IHECRE00001820	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	hindbrain	NCBITaxon:10090	ENCODE
+IHECRE00001778	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	intestine	NCBITaxon:10090	ENCODE
+IHECRE00001848	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	forebrain	NCBITaxon:10090	ENCODE
+IHECRE00001802	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	forebrain	NCBITaxon:10090	ENCODE
+IHECRE00001839	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	midbrain	NCBITaxon:10090	ENCODE
+IHECRE00001809	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	hindbrain	NCBITaxon:10090	ENCODE
+IHECRE00001830	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	hindbrain	NCBITaxon:10090	ENCODE
+IHECRE00001810	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	forebrain	NCBITaxon:10090	ENCODE
+IHECRE00001807	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	midbrain	NCBITaxon:10090	ENCODE
+IHECRE00001805	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	forebrain	NCBITaxon:10090	ENCODE
+IHECRE00001806	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	midbrain	NCBITaxon:10090	ENCODE
+IHECRE00001799	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	hindbrain	NCBITaxon:10090	ENCODE
+IHECRE00001777	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00001776	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|total RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00001773	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00000938	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	aorta	NCBITaxon:9606	Roadmap
+IHECRE00000942	Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	pancreas	NCBITaxon:9606	Roadmap
+IHECRE00000972	Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	spleen	NCBITaxon:9606	Roadmap
+IHECRE00001850	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00001814	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00001812	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00001782	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	lung	NCBITaxon:10090	ENCODE
+IHECRE00001793	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	lung	NCBITaxon:10090	ENCODE
+IHECRE00001843	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	lung	NCBITaxon:10090	ENCODE
+IHECRE00001849	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	lung	NCBITaxon:10090	ENCODE
+IHECRE00001790	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	liver	NCBITaxon:10090	ENCODE
+IHECRE00001786	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	liver	NCBITaxon:10090	ENCODE
+IHECRE00001823	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	liver	NCBITaxon:10090	ENCODE
+IHECRE00001834	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	liver	NCBITaxon:10090	ENCODE
+IHECRE00001841	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	liver	NCBITaxon:10090	ENCODE
+IHECRE00001788	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	liver	NCBITaxon:10090	ENCODE
+IHECRE00001829	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	kidney	NCBITaxon:10090	ENCODE
+IHECRE00001826	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	kidney	NCBITaxon:10090	ENCODE
+IHECRE00001779	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	kidney	NCBITaxon:10090	ENCODE
+IHECRE00001838	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	kidney	NCBITaxon:10090	ENCODE
+IHECRE00001775	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	intestine	NCBITaxon:10090	ENCODE
+IHECRE00001824	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|polyA plus RNA-seq	intestine	NCBITaxon:10090	ENCODE
+IHECRE00001808	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	limb	NCBITaxon:10090	ENCODE
+IHECRE00001825	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	limb	NCBITaxon:10090	ENCODE
+IHECRE00001792	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	limb	NCBITaxon:10090	ENCODE
+IHECRE00001803	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	intestine	NCBITaxon:10090	ENCODE
+IHECRE00001804	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	limb	NCBITaxon:10090	ENCODE
+IHECRE00001851	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|polyA plus RNA-seq|small RNA-seq	HeLa-S3	NCBITaxon:9606	ENCODE
+IHECRE00003714	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|total RNA-seq	A673	NCBITaxon:9606	ENCODE
+IHECRE00001798	Control ChIP-seq|DNase-seq|Histone ChIP-seq|total RNA-seq	ES-E14	NCBITaxon:10090	ENCODE
+IHECRE00003702	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|small RNA-seq|total RNA-seq	neural progenitor cell	NCBITaxon:9606	ENCODE
+IHECRE00001837	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|total RNA-seq	CH12.LX	NCBITaxon:10090	ENCODE
+IHECRE00001781	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|total RNA-seq	MEL	NCBITaxon:10090	ENCODE
+IHECRE00001796	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	thymus	NCBITaxon:10090	ENCODE
+IHECRE00001801	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	testis	NCBITaxon:10090	ENCODE
+IHECRE00001846	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	spleen	NCBITaxon:10090	ENCODE
+IHECRE00001787	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	small intestine	NCBITaxon:10090	ENCODE
+IHECRE00001819	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	kidney	NCBITaxon:10090	ENCODE
+IHECRE00001783	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	brain	NCBITaxon:10090	ENCODE
+IHECRE00001840	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|total RNA-seq	liver	NCBITaxon:10090	ENCODE
+IHECRE00001822	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq	heart	NCBITaxon:10090	ENCODE
+IHECRE00001889	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	H1	NCBITaxon:9606	ENCODE
+IHECRE00001882	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	myotube	NCBITaxon:9606	ENCODE
+IHECRE00004685	Control ChIP-seq|DNase-seq|Histone ChIP-seq	mesodermal cell	NCBITaxon:9606	ENCODE
+IHECRE00003707	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|small RNA-seq	B cell	NCBITaxon:9606	ENCODE
+IHECRE00001891	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|polyA plus RNA-seq|total RNA-seq	skeletal muscle myoblast	NCBITaxon:9606	ENCODE
+IHECRE00001890	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|total RNA-seq	astrocyte	NCBITaxon:9606	ENCODE
+IHECRE00001888	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	mammary epithelial cell	NCBITaxon:9606	ENCODE
+IHECRE00001857	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|small RNA-seq	CD14-positive monocyte	NCBITaxon:9606	ENCODE
+IHECRE00001886	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|small RNA-seq	keratinocyte	NCBITaxon:9606	ENCODE
+IHECRE00001881	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|polyA plus RNA-seq|total RNA-seq	endothelial cell of umbilical vein	NCBITaxon:9606	ENCODE
+IHECRE00001883	Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|polyA plus RNA-seq|total RNA-seq	fibroblast of lung	NCBITaxon:9606	ENCODE
+IHECRE00001816	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	stomach	NCBITaxon:10090	ENCODE
+IHECRE00001853	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	MCF-7	NCBITaxon:9606	ENCODE
+IHECRE00001835	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	stomach	NCBITaxon:10090	ENCODE
+IHECRE00004659	Control ChIP-seq|Histone ChIP-seq|TF ChIP-seq	HEK293	NCBITaxon:9606	ENCODE
+IHECRE00001789	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	stomach	NCBITaxon:10090	ENCODE
+IHECRE00004687	Control ChIP-seq|DNase-seq|Histone ChIP-seq	NT2/D1	NCBITaxon:9606	ENCODE
+IHECRE00001858	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|microRNA-seq|polyA plus RNA-seq|total RNA-seq	Panc1	NCBITaxon:9606	ENCODE
+IHECRE00001893	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	HepG2	NCBITaxon:9606	ENCODE
+IHECRE00001892	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	GM12878	NCBITaxon:9606	ENCODE
+IHECRE00001887	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq|small RNA-seq|total RNA-seq	K562	NCBITaxon:9606	ENCODE
+IHECRE00004694	ATAC-seq|Control ChIP-seq|DNase-seq|Histone ChIP-seq|TF ChIP-seq|WGBS|polyA plus RNA-seq|small RNA-seq	A549	NCBITaxon:9606	ENCODE
+IHECRE00001800	ATAC-seq|Control ChIP-seq|Histone ChIP-seq|WGBS|microRNA-seq|polyA plus RNA-seq	stomach	NCBITaxon:10090	ENCODE

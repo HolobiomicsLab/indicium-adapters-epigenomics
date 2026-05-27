@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "indicium-adapters-epigenomics"
+version = "0.1.0"
+description = "Epigenomics-domain DomainAdapters for the indicium ecosystem"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {file = "LICENSE"}
+authors = [{name = "Deniz Erturk", email = "denizert2000@gmail.com"}]
+keywords = [
+    "epigenomics", "chip-seq", "atac-seq", "methylation", "single-cell",
+    "knowledge-graph", "rdf", "shacl", "indicium", "domain-adapter", "ontology",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "indicium-adapters>=0.4.0",
+    "indicium>=1.4",
+    "rdflib>=7.0",
+    "pyshacl>=0.25",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=4", "ruff>=0.5"]
+# Build-time only: needed by the maintainer scripts under data/build_*.py.
+# Not required to run the adapter or its tests.
+build = ["pandas>=2.0", "requests>=2.31", "httpx>=0.27"]
+
+[project.entry-points."indicium.adapters"]
+bulk-epigenomics = "indicium_adapters_epigenomics.bulk:BulkEpigenomicsAdapter"
+single-cell-epigenomics = "indicium_adapters_epigenomics.singlecell:SingleCellEpigenomicsAdapter"
+methylation-array-epigenomics = "indicium_adapters_epigenomics.array:MethylationArrayEpigenomicsAdapter"
+
+[project.urls]
+Homepage = "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics"
+Repository = "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics"
+Issues = "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics/issues"
+Changelog = "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/indicium_adapters_epigenomics"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.coverage.run]
+omit = [
+    "src/indicium_adapters_epigenomics/data/build_encode_index.py",
+    "src/indicium_adapters_epigenomics/data/build_epirr_index.py",
+    "src/indicium_adapters_epigenomics/data/build_mod_index.py",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --strict-markers --cov=indicium_adapters_epigenomics --cov-report=term-missing --cov-fail-under=90"

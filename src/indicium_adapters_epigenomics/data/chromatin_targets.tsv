@@ -1,0 +1,108 @@
+symbol	aliases	curie	label	organism_curie	uniprot_id	category
+CTCF	CCCTC-binding factor	UniProt:P49711	transcriptional repressor CTCF	NCBITaxon:9606	P49711	insulator
+CTCF	Ctcf	UniProt:Q61164	transcriptional repressor CTCF	NCBITaxon:10090	Q61164	insulator
+REST	NRSF	UniProt:Q13127	RE1-silencing transcription factor	NCBITaxon:9606	Q13127	transcription_factor
+RAD21	hHR21|Mcd1|Scc1	UniProt:O60216	double-strand-break repair protein rad21 homolog	NCBITaxon:9606	O60216	cohesin
+SMC1A	SMC1|SMCB	UniProt:Q14683	structural maintenance of chromosomes protein 1A	NCBITaxon:9606	Q14683	cohesin
+SMC3	BAM|BMH|CSPG6	UniProt:Q9UQE7	structural maintenance of chromosomes protein 3	NCBITaxon:9606	Q9UQE7	cohesin
+EZH2	ENX1|KMT6	UniProt:Q15910	histone-lysine N-methyltransferase EZH2	NCBITaxon:9606	Q15910	polycomb
+Ezh2	Enx1	UniProt:Q61188	histone-lysine N-methyltransferase Ezh2	NCBITaxon:10090	Q61188	polycomb
+SUZ12	JJAZ1	UniProt:Q15022	polycomb protein SUZ12	NCBITaxon:9606	Q15022	polycomb
+EED	WAIT-1	UniProt:O75530	polycomb protein EED	NCBITaxon:9606	O75530	polycomb
+JARID2	JMJ	UniProt:Q92833	protein Jumonji	NCBITaxon:9606	Q92833	polycomb
+BMI1	PCGF4|RNF51	UniProt:P35226	polycomb complex protein BMI-1	NCBITaxon:9606	P35226	polycomb
+RING1B	RNF2|RING2	UniProt:Q99496	E3 ubiquitin-protein ligase RING2	NCBITaxon:9606	Q99496	polycomb
+KDM1A	LSD1|AOF2	UniProt:O60341	lysine-specific histone demethylase 1A	NCBITaxon:9606	O60341	histone_demethylase
+KDM2A	JHDM1A|FBXL11	UniProt:Q9Y2K7	lysine-specific demethylase 2A	NCBITaxon:9606	Q9Y2K7	histone_demethylase
+KDM2B	JHDM1B|FBXL10	UniProt:Q8NHM5	lysine-specific demethylase 2B	NCBITaxon:9606	Q8NHM5	histone_demethylase
+KDM5A	JARID1A|RBP2	UniProt:P29375	lysine-specific demethylase 5A	NCBITaxon:9606	P29375	histone_demethylase
+KDM5B	JARID1B|PLU1	UniProt:Q9UGL1	lysine-specific demethylase 5B	NCBITaxon:9606	Q9UGL1	histone_demethylase
+KDM5C	JARID1C|SMCX	UniProt:P41229	lysine-specific demethylase 5C	NCBITaxon:9606	P41229	histone_demethylase
+KDM6A	UTX	UniProt:O15550	lysine-specific demethylase 6A	NCBITaxon:9606	O15550	histone_demethylase
+KDM6B	JMJD3	UniProt:O15054	lysine-specific demethylase 6B	NCBITaxon:9606	O15054	histone_demethylase
+KMT2A	MLL|MLL1|HRX	UniProt:Q03164	histone-lysine N-methyltransferase 2A	NCBITaxon:9606	Q03164	histone_methyltransferase
+KMT2B	MLL2|MLL4	UniProt:Q9UMN6	histone-lysine N-methyltransferase 2B	NCBITaxon:9606	Q9UMN6	histone_methyltransferase
+KMT2C	MLL3	UniProt:Q8NEZ4	histone-lysine N-methyltransferase 2C	NCBITaxon:9606	Q8NEZ4	histone_methyltransferase
+KMT2D	MLL2|MLL4	UniProt:O14686	histone-lysine N-methyltransferase 2D	NCBITaxon:9606	O14686	histone_methyltransferase
+EHMT1	GLP|KMT1D	UniProt:Q9H9B1	histone-lysine N-methyltransferase EHMT1	NCBITaxon:9606	Q9H9B1	histone_methyltransferase
+EHMT2	G9a|KMT1C	UniProt:Q96KQ7	histone-lysine N-methyltransferase EHMT2	NCBITaxon:9606	Q96KQ7	histone_methyltransferase
+SETD1A	KMT2F|Set1A	UniProt:O15047	histone-lysine N-methyltransferase SETD1A	NCBITaxon:9606	O15047	histone_methyltransferase
+SETD1B	KMT2G|Set1B	UniProt:Q9UPS6	histone-lysine N-methyltransferase SETD1B	NCBITaxon:9606	Q9UPS6	histone_methyltransferase
+SETDB1	ESET|KMT1E	UniProt:Q15047	histone-lysine N-methyltransferase SETDB1	NCBITaxon:9606	Q15047	histone_methyltransferase
+SUV39H1	KMT1A	UniProt:O43463	histone-lysine N-methyltransferase SUV39H1	NCBITaxon:9606	O43463	histone_methyltransferase
+SUV39H2	KMT1B	UniProt:Q9H5I1	histone-lysine N-methyltransferase SUV39H2	NCBITaxon:9606	Q9H5I1	histone_methyltransferase
+DOT1L	KMT4	UniProt:Q8TEK3	histone-lysine N-methyltransferase DOT1L	NCBITaxon:9606	Q8TEK3	histone_methyltransferase
+DNMT1	MCMT	UniProt:P26358	DNA (cytosine-5)-methyltransferase 1	NCBITaxon:9606	P26358	dna_methyltransferase
+Dnmt1	Mcmt	UniProt:P13864	DNA (cytosine-5)-methyltransferase 1	NCBITaxon:10090	P13864	dna_methyltransferase
+DNMT3A		UniProt:Q9Y6K1	DNA (cytosine-5)-methyltransferase 3A	NCBITaxon:9606	Q9Y6K1	dna_methyltransferase
+DNMT3B		UniProt:Q9UBC3	DNA (cytosine-5)-methyltransferase 3B	NCBITaxon:9606	Q9UBC3	dna_methyltransferase
+DNMT3L		UniProt:Q9UJW3	DNA (cytosine-5)-methyltransferase 3-like	NCBITaxon:9606	Q9UJW3	dna_methyltransferase
+TET1	KIAA1676|CXXC6	UniProt:Q8NFU7	methylcytosine dioxygenase TET1	NCBITaxon:9606	Q8NFU7	chromatin_remodeler
+TET2	KIAA1546	UniProt:Q6N021	methylcytosine dioxygenase TET2	NCBITaxon:9606	Q6N021	chromatin_remodeler
+TET3		UniProt:O43151	methylcytosine dioxygenase TET3	NCBITaxon:9606	O43151	chromatin_remodeler
+MBD1	PCM1|CXXC3	UniProt:Q9UIS9	methyl-CpG-binding domain protein 1	NCBITaxon:9606	Q9UIS9	chromatin_remodeler
+MBD2		UniProt:Q9UBB5	methyl-CpG-binding domain protein 2	NCBITaxon:9606	Q9UBB5	chromatin_remodeler
+MBD3		UniProt:O95983	methyl-CpG-binding domain protein 3	NCBITaxon:9606	O95983	chromatin_remodeler
+MBD4		UniProt:O95243	methyl-CpG-binding domain protein 4	NCBITaxon:9606	O95243	chromatin_remodeler
+EP300	p300|KAT3B	UniProt:Q09472	histone acetyltransferase p300	NCBITaxon:9606	Q09472	histone_acetyltransferase
+CREBBP	CBP|KAT3A	UniProt:Q92793	CREB-binding protein	NCBITaxon:9606	Q92793	histone_acetyltransferase
+KAT2A	GCN5|GCN5L2	UniProt:Q92830	histone acetyltransferase KAT2A	NCBITaxon:9606	Q92830	histone_acetyltransferase
+KAT2B	PCAF	UniProt:Q92831	histone acetyltransferase KAT2B	NCBITaxon:9606	Q92831	histone_acetyltransferase
+HDAC1	RPD3L1	UniProt:Q13547	histone deacetylase 1	NCBITaxon:9606	Q13547	histone_deacetylase
+HDAC2	RPD3	UniProt:Q92769	histone deacetylase 2	NCBITaxon:9606	Q92769	histone_deacetylase
+HDAC3		UniProt:O15379	histone deacetylase 3	NCBITaxon:9606	O15379	histone_deacetylase
+HDAC4		UniProt:P56524	histone deacetylase 4	NCBITaxon:9606	P56524	histone_deacetylase
+HDAC5		UniProt:Q9UQL6	histone deacetylase 5	NCBITaxon:9606	Q9UQL6	histone_deacetylase
+HDAC6		UniProt:Q9UBN7	histone deacetylase 6	NCBITaxon:9606	Q9UBN7	histone_deacetylase
+BRD2	RING3	UniProt:P25440	bromodomain-containing protein 2	NCBITaxon:9606	P25440	chromatin_remodeler
+BRD3		UniProt:Q15059	bromodomain-containing protein 3	NCBITaxon:9606	Q15059	chromatin_remodeler
+BRD4		UniProt:O60885	bromodomain-containing protein 4	NCBITaxon:9606	O60885	chromatin_remodeler
+SMARCA4	BRG1|BAF190A	UniProt:P51532	transcription activator BRG1	NCBITaxon:9606	P51532	chromatin_remodeler
+SMARCA2	BRM|hBRM	UniProt:P51531	probable global transcription activator SNF2L2	NCBITaxon:9606	P51531	chromatin_remodeler
+ARID1A	BAF250A|SMARCF1	UniProt:O14497	AT-rich interactive domain-containing protein 1A	NCBITaxon:9606	O14497	chromatin_remodeler
+ARID1B	BAF250B	UniProt:Q8NFD5	AT-rich interactive domain-containing protein 1B	NCBITaxon:9606	Q8NFD5	chromatin_remodeler
+CHD1		UniProt:O14646	chromodomain-helicase-DNA-binding protein 1	NCBITaxon:9606	O14646	chromatin_remodeler
+CHD7		UniProt:Q9P2D1	chromodomain-helicase-DNA-binding protein 7	NCBITaxon:9606	Q9P2D1	chromatin_remodeler
+HP1A	CBX5	UniProt:P45973	chromobox protein homolog 5	NCBITaxon:9606	P45973	chromatin_remodeler
+HP1B	CBX1	UniProt:P83916	chromobox protein homolog 1	NCBITaxon:9606	P83916	chromatin_remodeler
+HP1G	CBX3	UniProt:Q13185	chromobox protein homolog 3	NCBITaxon:9606	Q13185	chromatin_remodeler
+MYC	c-Myc	UniProt:P01106	myc proto-oncogene protein	NCBITaxon:9606	P01106	transcription_factor
+MAX		UniProt:P61244	protein max	NCBITaxon:9606	P61244	transcription_factor
+JUN	c-Jun|AP-1	UniProt:P05412	transcription factor AP-1	NCBITaxon:9606	P05412	transcription_factor
+FOS	c-Fos	UniProt:P01100	proto-oncogene c-Fos	NCBITaxon:9606	P01100	transcription_factor
+GATA1	GF-1	UniProt:P15976	erythroid transcription factor	NCBITaxon:9606	P15976	transcription_factor
+GATA2		UniProt:P23769	endothelial transcription factor GATA-2	NCBITaxon:9606	P23769	transcription_factor
+GATA3		UniProt:P23771	trans-acting T-cell-specific transcription factor GATA-3	NCBITaxon:9606	P23771	transcription_factor
+FOXA1	HNF3A	UniProt:P55317	hepatocyte nuclear factor 3-alpha	NCBITaxon:9606	P55317	transcription_factor
+FOXA2	HNF3B	UniProt:Q9Y261	hepatocyte nuclear factor 3-beta	NCBITaxon:9606	Q9Y261	transcription_factor
+ESR1	ERα|ER-alpha|NR3A1	UniProt:P03372	estrogen receptor	NCBITaxon:9606	P03372	transcription_factor
+AR	NR3C4	UniProt:P10275	androgen receptor	NCBITaxon:9606	P10275	transcription_factor
+PPARG	PPARgamma|NR1C3	UniProt:P37231	peroxisome proliferator-activated receptor gamma	NCBITaxon:9606	P37231	transcription_factor
+KLF4	EZF	UniProt:O43474	krueppel-like factor 4	NCBITaxon:9606	O43474	transcription_factor
+NANOG		UniProt:Q9H9S0	homeobox protein NANOG	NCBITaxon:9606	Q9H9S0	transcription_factor
+SOX2		UniProt:P48431	transcription factor SOX-2	NCBITaxon:9606	P48431	transcription_factor
+POU5F1	OCT4|OCT3|OCT3/4	UniProt:Q01860	POU domain class 5 transcription factor 1	NCBITaxon:9606	Q01860	transcription_factor
+SPI1	PU.1	UniProt:P17947	transcription factor PU.1	NCBITaxon:9606	P17947	transcription_factor
+TBX5		UniProt:Q99593	T-box transcription factor TBX5	NCBITaxon:9606	Q99593	transcription_factor
+MEF2A		UniProt:Q02078	myocyte-specific enhancer factor 2A	NCBITaxon:9606	Q02078	transcription_factor
+MEF2C		UniProt:Q06413	myocyte-specific enhancer factor 2C	NCBITaxon:9606	Q06413	transcription_factor
+RUNX1	AML1	UniProt:Q01196	runt-related transcription factor 1	NCBITaxon:9606	Q01196	transcription_factor
+TAL1	SCL	UniProt:P17542	T-cell acute lymphocytic leukemia protein 1	NCBITaxon:9606	P17542	transcription_factor
+TP53	p53	UniProt:P04637	cellular tumor antigen p53	NCBITaxon:9606	P04637	transcription_factor
+STAT1		UniProt:P42224	signal transducer and activator of transcription 1-alpha/beta	NCBITaxon:9606	P42224	transcription_factor
+STAT3		UniProt:P40763	signal transducer and activator of transcription 3	NCBITaxon:9606	P40763	transcription_factor
+NFKB1	p50|p105	UniProt:P19838	nuclear factor NF-kappa-B p105 subunit	NCBITaxon:9606	P19838	transcription_factor
+RELA	p65|NFKB3	UniProt:Q04206	transcription factor p65	NCBITaxon:9606	Q04206	transcription_factor
+YY1		UniProt:P25490	transcriptional repressor protein YY1	NCBITaxon:9606	P25490	transcription_factor
+SP1		UniProt:P08047	transcription factor Sp1	NCBITaxon:9606	P08047	transcription_factor
+E2F1		UniProt:Q01094	transcription factor E2F1	NCBITaxon:9606	Q01094	transcription_factor
+TCF7L2	TCF4	UniProt:Q9NQB0	transcription factor 7-like 2	NCBITaxon:9606	Q9NQB0	transcription_factor
+SMAD3		UniProt:P84022	mothers against decapentaplegic homolog 3	NCBITaxon:9606	P84022	transcription_factor
+SMAD4	DPC4	UniProt:Q13485	mothers against decapentaplegic homolog 4	NCBITaxon:9606	Q13485	transcription_factor
+TFAP2A	AP-2alpha	UniProt:P05549	transcription factor AP-2-alpha	NCBITaxon:9606	P05549	transcription_factor
+ZNF143		UniProt:P52747	zinc finger protein 143	NCBITaxon:9606	P52747	transcription_factor
+Sox2		UniProt:P48432	transcription factor SOX-2	NCBITaxon:10090	P48432	transcription_factor
+Pou5f1	Oct4|Oct3	UniProt:P20263	POU domain class 5 transcription factor 1	NCBITaxon:10090	P20263	transcription_factor
+Nanog		UniProt:Q80Z64	homeobox protein NANOG	NCBITaxon:10090	Q80Z64	transcription_factor
+Klf4		UniProt:Q60793	krueppel-like factor 4	NCBITaxon:10090	Q60793	transcription_factor
+Myc	c-Myc	UniProt:P01108	myc proto-oncogene protein	NCBITaxon:10090	P01108	transcription_factor
