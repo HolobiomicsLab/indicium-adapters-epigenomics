@@ -1,0 +1,34 @@
+symbol	aliases	curie	label	type	cl_curie	uberon_curie	efo_curie
+K562	K-562|K 562	IHECBio:K562	K562 chronic myelogenous leukemia	cell_line			EFO:0002067
+GM12878	GM-12878|NA12878	IHECBio:GM12878	GM12878 B-lymphocyte (EBV-transformed)	cell_line	CL:0000236		EFO:0002824
+H1-hESC	H1|H1 hESC|H1ESC|H1-ES	IHECBio:H1_hESC	H1 human embryonic stem cell	stem_cell	CL:0002322		EFO:0003042
+HepG2	HEPG2|Hep-G2|Hep G2	IHECBio:HepG2	HepG2 hepatocellular carcinoma	cell_line	CL:0000182	UBERON:0002107	EFO:0001187
+HeLa-S3	HeLa S3|HeLa|HeLaS3	IHECBio:HeLa_S3	HeLa-S3 cervical adenocarcinoma	cell_line		UBERON:0000002	EFO:0006841
+HUVEC	HUVECs|Human Umbilical Vein Endothelial Cells	IHECBio:HUVEC	Human umbilical vein endothelial cell	primary_cell	CL:0002618	UBERON:0001638	EFO:0001042
+A549	A 549|A-549	IHECBio:A549	A549 lung adenocarcinoma	cell_line		UBERON:0002048	EFO:0001086
+MCF-7	MCF7|MCF 7	IHECBio:MCF_7	MCF-7 mammary gland adenocarcinoma	cell_line		UBERON:0001911	EFO:0001203
+IMR-90	IMR90|IMR 90	IHECBio:IMR_90	IMR-90 fetal lung fibroblast	cell_line	CL:0002553	UBERON:0002048	EFO:0001196
+NHEK	NHEKs|Normal Human Epidermal Keratinocytes	IHECBio:NHEK	Normal human epidermal keratinocyte	primary_cell	CL:1000428	UBERON:0001003
+NHLF	NHLFs|Normal Human Lung Fibroblasts	IHECBio:NHLF	Normal human lung fibroblast	primary_cell	CL:0002553	UBERON:0002048
+SK-N-SH	SKNSH|SK N SH	IHECBio:SK_N_SH	SK-N-SH neuroblastoma	cell_line		UBERON:0001950	EFO:0006289
+CD4_T_cell	CD4+ T cell|CD4-positive T cell|CD4+ T lymphocyte	IHECBio:CD4_T_cell	CD4-positive alpha-beta T cell	primary_cell	CL:0000624	UBERON:0002405
+CD8_T_cell	CD8+ T cell|CD8-positive T cell|CD8+ T lymphocyte	IHECBio:CD8_T_cell	CD8-positive alpha-beta T cell	primary_cell	CL:0000625	UBERON:0002405
+CD14_monocyte	CD14+ monocyte|CD14-positive monocyte	IHECBio:CD14_monocyte	CD14-positive monocyte	primary_cell	CL:0000576	UBERON:0002193
+CD19_B_cell	CD19+ B cell|CD19-positive B cell	IHECBio:CD19_B_cell	CD19-positive B cell	primary_cell	CL:0000236	UBERON:0002106
+CD34_HSC	CD34+ HSC|CD34+ hematopoietic stem cell|HSPC	IHECBio:CD34_HSC	CD34-positive hematopoietic stem cell	stem_cell	CL:0000037	UBERON:0002371
+CD56_NK_cell	CD56+ NK cell|natural killer cell	IHECBio:CD56_NK_cell	CD56-positive natural killer cell	primary_cell	CL:0000623	UBERON:0002193
+Treg	regulatory T cell|CD25+ T regulatory cell|FoxP3+ Treg	IHECBio:Treg	Regulatory T cell	primary_cell	CL:0000792	UBERON:0002405
+neutrophil	polymorphonuclear neutrophil|PMN	IHECBio:neutrophil	Neutrophil	primary_cell	CL:0000775	UBERON:0002193
+naive_B_cell	naive B-cell|naive B lymphocyte	IHECBio:naive_B_cell	Naive B cell	primary_cell	CL:0000788	UBERON:0002106
+brain_cortex	frontal cortex|prefrontal cortex|cerebral cortex	IHECBio:brain_cortex	Cerebral cortex	tissue		UBERON:0000956
+liver	hepatic tissue	IHECBio:liver	Liver	tissue		UBERON:0002107
+lung	pulmonary tissue	IHECBio:lung	Lung	tissue		UBERON:0002048
+heart_left_ventricle	left ventricle	IHECBio:heart_left_ventricle	Heart left ventricle	tissue		UBERON:0006566
+skeletal_muscle	skeletal muscle tissue	IHECBio:skeletal_muscle	Skeletal muscle	tissue		UBERON:0001134
+pancreatic_islet	pancreatic islet|islet of Langerhans	IHECBio:pancreatic_islet	Pancreatic islet	tissue		UBERON:0000006
+kidney	renal tissue|kidney tissue	IHECBio:kidney	Kidney	tissue		UBERON:0002113
+spleen	splenic tissue	IHECBio:spleen	Spleen	tissue		UBERON:0002106
+subcutaneous_adipose	subcutaneous adipose|subcutaneous fat	IHECBio:subcutaneous_adipose	Subcutaneous adipose tissue	tissue		UBERON:0002190
+thymus	thymic tissue	IHECBio:thymus	Thymus	tissue		UBERON:0002370
+colon_mucosa	colonic mucosa|sigmoid colon mucosa	IHECBio:colon_mucosa	Colonic mucosa	tissue		UBERON:0000317
+breast_epithelium	mammary epithelium	IHECBio:breast_epithelium	Breast epithelium	tissue		UBERON:0008337

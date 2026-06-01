@@ -37,13 +37,13 @@ Dnmt1	Mcmt	UniProt:P13864	DNA (cytosine-5)-methyltransferase 1	NCBITaxon:10090	P
 DNMT3A		UniProt:Q9Y6K1	DNA (cytosine-5)-methyltransferase 3A	NCBITaxon:9606	Q9Y6K1	dna_methyltransferase
 DNMT3B		UniProt:Q9UBC3	DNA (cytosine-5)-methyltransferase 3B	NCBITaxon:9606	Q9UBC3	dna_methyltransferase
 DNMT3L		UniProt:Q9UJW3	DNA (cytosine-5)-methyltransferase 3-like	NCBITaxon:9606	Q9UJW3	dna_methyltransferase
-TET1	KIAA1676|CXXC6	UniProt:Q8NFU7	methylcytosine dioxygenase TET1	NCBITaxon:9606	Q8NFU7	chromatin_remodeler
-TET2	KIAA1546	UniProt:Q6N021	methylcytosine dioxygenase TET2	NCBITaxon:9606	Q6N021	chromatin_remodeler
-TET3		UniProt:O43151	methylcytosine dioxygenase TET3	NCBITaxon:9606	O43151	chromatin_remodeler
-MBD1	PCM1|CXXC3	UniProt:Q9UIS9	methyl-CpG-binding domain protein 1	NCBITaxon:9606	Q9UIS9	chromatin_remodeler
-MBD2		UniProt:Q9UBB5	methyl-CpG-binding domain protein 2	NCBITaxon:9606	Q9UBB5	chromatin_remodeler
-MBD3		UniProt:O95983	methyl-CpG-binding domain protein 3	NCBITaxon:9606	O95983	chromatin_remodeler
-MBD4		UniProt:O95243	methyl-CpG-binding domain protein 4	NCBITaxon:9606	O95243	chromatin_remodeler
+TET1	KIAA1676|CXXC6	UniProt:Q8NFU7	methylcytosine dioxygenase TET1	NCBITaxon:9606	Q8NFU7	dna_demethylase
+TET2	KIAA1546	UniProt:Q6N021	methylcytosine dioxygenase TET2	NCBITaxon:9606	Q6N021	dna_demethylase
+TET3		UniProt:O43151	methylcytosine dioxygenase TET3	NCBITaxon:9606	O43151	dna_demethylase
+MBD1	PCM1|CXXC3	UniProt:Q9UIS9	methyl-CpG-binding domain protein 1	NCBITaxon:9606	Q9UIS9	methyl_cpg_reader
+MBD2		UniProt:Q9UBB5	methyl-CpG-binding domain protein 2	NCBITaxon:9606	Q9UBB5	methyl_cpg_reader
+MBD3		UniProt:O95983	methyl-CpG-binding domain protein 3	NCBITaxon:9606	O95983	methyl_cpg_reader
+MBD4		UniProt:O95243	methyl-CpG-binding domain protein 4	NCBITaxon:9606	O95243	methyl_cpg_reader
 EP300	p300|KAT3B	UniProt:Q09472	histone acetyltransferase p300	NCBITaxon:9606	Q09472	histone_acetyltransferase
 CREBBP	CBP|KAT3A	UniProt:Q92793	CREB-binding protein	NCBITaxon:9606	Q92793	histone_acetyltransferase
 KAT2A	GCN5|GCN5L2	UniProt:Q92830	histone acetyltransferase KAT2A	NCBITaxon:9606	Q92830	histone_acetyltransferase

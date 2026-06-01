@@ -1,0 +1,8 @@
+symbol	aliases	curie	label	type
+PLS	Promoter-Like Signature|Promoter Like Signature|promoter-like|PromoterLike	EpiCCRE:PLS	Promoter-Like Signature	promoter
+pELS	proximal Enhancer-Like Signature|proximal enhancer-like|pELSig|proximal_ELS	EpiCCRE:pELS	proximal Enhancer-Like Signature	proximal_enhancer
+dELS	distal Enhancer-Like Signature|distal enhancer-like|dELSig|distal_ELS	EpiCCRE:dELS	distal Enhancer-Like Signature	distal_enhancer
+CA-CTCF	CA CTCF|chromatin accessible CTCF|CA+CTCF|CA_CTCF	EpiCCRE:CA_CTCF	Chromatin Accessible + CTCF	ctcf_accessibility
+CA-H3K4me3	CA H3K4me3|CA+H3K4me3|CA_H3K4me3|chromatin accessible H3K4me3	EpiCCRE:CA_H3K4me3	Chromatin Accessible + H3K4me3	h3k4me3_accessibility
+CA-TF	CA TF|CA+TF|CA_TF|chromatin accessible TF	EpiCCRE:CA_TF	Chromatin Accessible + Transcription Factor	tf_accessibility
+CA-only	CA only|CA_only|CAonly|chromatin accessible only|DNase only cCRE	EpiCCRE:CA_only	Chromatin Accessible only	accessibility_only

@@ -20,22 +20,30 @@ maintainer scripts under ``data/build_*.py``.
 from __future__ import annotations
 
 import copy
+import warnings
 from importlib.resources import files
 from typing import Final
 
 import rdflib
 
-from indicium_adapters_epigenomics._enrichment import (
-    ASSAY_INDEX,
-    ASSEMBLY_INDEX,
-    HISTONE_INDEX,
-    QC_INDEX,
-    TARGET_INDEX,
-)
 from indicium_adapters_epigenomics._namespaces import EPIGENOMICS_PREFIXES
 from indicium_adapters_epigenomics._registries import accession_to_curie
+from indicium_adapters_epigenomics._resolver import resolve
 
 __all__ = ["BulkEpigenomicsAdapter", "accession_to_curie"]
+
+
+# Qualifier → replacement-qualifier map for the v0.2.0 §6 3D-genome
+# split. ``interacts_3d_with`` collapsed every 3D-conformation
+# observation into one slot; v0.2.0 splits it by semantics
+# (Hi-C-style contact vs loop call vs anchor pair vs TAD boundary vs
+# compartment assignment vs sub-TAD nesting). The old qualifier remains
+# in the public ``qualifiers`` frozenset for one minor version so v0.1
+# consumers don't break, but emits a ``DeprecationWarning`` on use to
+# nudge callers toward the more specific form. Removal target: v0.3.0.
+_DEPRECATED_QUALIFIERS: Final[dict[str, str]] = {
+    "interacts_3d_with": "contacts_with",
+}
 
 
 # Slot names that may carry an enrichable token (accession, assay name, histone
@@ -59,11 +67,26 @@ class BulkEpigenomicsAdapter:
     ENA / ArrayExpress / BioProject / EGA / ChIP-Atlas / Cistrome), assay
     names, reference-genome assembly names, histone modifications and
     variants, chromatin targets (TFs + modifiers), and QC-metric names.
+
+    Every qualifier in the ``qualifiers`` frozenset MUST match
+    ``^[a-z][a-z0-9_]*$`` (snake_case). Required by indicium >= 1.7.0:
+    Perspicacite routes adapter qualifiers to the open
+    ``asb:domainQualifier`` slot, whose SHACL shape enforces exactly this
+    pattern. Non-conforming values would be silently rejected by
+    ``indicium.validate_graph`` at the RDF boundary. The constraint is
+    enforced by ``tests/test_protocol_conformance.py``.
     """
 
     domain_id = "bulk-epigenomics"
     api_version = 1
 
+    # Every qualifier MUST match ``^[a-z][a-z0-9_]*$`` (snake_case).
+    # Required by indicium >= 1.7.0: at serialisation time, Perspicacite
+    # routes any qualifier from this set to ``asb:domainQualifier`` (the
+    # open slot for domain vocabularies), which enforces the snake_case
+    # pattern at the SHACL boundary. Non-conforming values would be
+    # rejected by ``indicium.validate_graph``. Enforced for the package
+    # by ``tests/test_protocol_conformance.py``.
     qualifiers: frozenset[str] = frozenset({
         # Assay / study-level qualifiers — subject is typically a study or
         # capsule id, object is a platform / tool / database / accession.
@@ -87,7 +110,27 @@ class BulkEpigenomicsAdapter:
         "differentially_accessible_in",
         "enriched_for",
         "co_occupies_with",
-        "interacts_3d_with",
+        # v0.2.0 §6 — 3D-genome qualifier split. ``interacts_3d_with``
+        # collapsed every 3D observation into one slot; the new split
+        # carries the assay-specific semantics. Old qualifier kept for
+        # one minor version with a DeprecationWarning routed via
+        # ``_DEPRECATED_QUALIFIERS``; removal in v0.3.0.
+        "interacts_3d_with",     # DEPRECATED — use contacts_with
+        "contacts_with",         # generic Hi-C-style contact
+        "loops_with",            # explicit loop call (Mustache/HICCUPS)
+        "anchored_to",           # ChIA-PET / HiChIP anchor pair
+        "tad_boundary_with",     # TAD boundary call
+        "compartment_of",        # A / B / A1 / A2 / B1 / B2 / B3
+        "subtad_of",             # sub-TAD nesting
+        # v0.2.0 §2 — segmentation-state annotation. Subject is a region /
+        # peak / locus, object is a ChromHMM or Segway state label (e.g.
+        # "TssA", "EnhA1", "ReprPC"). Resolved via CHROM_STATE_INDEX.
+        "chromatin_state_of",
+        # v0.2.0 §5 — ENCODE SCREEN cCRE classification. Subject is a
+        # cCRE accession (``EH38E0000001`` for hg38, ``EM10E0000001`` for
+        # mm10) or a region; object is one of the 7 SCREEN classes
+        # (PLS / pELS / dELS / CA-CTCF / CA-H3K4me3 / CA-TF / CA-only).
+        "classified_as_ccre",
     })
 
     ontology_prefixes: dict[str, str] = EPIGENOMICS_PREFIXES
@@ -103,36 +146,68 @@ class BulkEpigenomicsAdapter:
             "marked_by, accessible_in, methylated_in, "
             "differentially_methylated_in, differentially_bound_in, "
             "differentially_accessible_in, enriched_for, co_occupies_with, "
-            "interacts_3d_with. Subjects/objects should be: histone marks "
-            "like H3K27ac (for marked_by/enriched_for); chromatin-target "
-            "gene symbols like CTCF (for bound_by/co_occupies_with); "
-            "assay/tool names (for assayed_with/aligned_with/"
-            "called_peaks_with); genome assembly names (for aligned_with); "
-            "repository accessions GSExxx, SRRxxx, ENCSRxxx, IHECREXXX, "
+            "contacts_with, loops_with, anchored_to, tad_boundary_with, "
+            "compartment_of, subtad_of, chromatin_state_of, "
+            "classified_as_ccre. "
+            "Subjects/objects should be: histone marks like H3K27ac (for "
+            "marked_by/enriched_for); chromatin-target gene symbols "
+            "like CTCF (for bound_by/co_occupies_with); assay/tool "
+            "names (for assayed_with/aligned_with/called_peaks_with); "
+            "genome assembly names (for aligned_with); ChromHMM or "
+            "Segway segmentation labels like TssA, EnhA1, ReprPC, Quies "
+            "(for chromatin_state_of); ENCODE SCREEN cCRE class labels "
+            "PLS / pELS / dELS / CA-CTCF / CA-H3K4me3 / CA-TF / CA-only "
+            "(for classified_as_ccre); repository accessions GSExxx, "
+            "SRRxxx, ENCSRxxx, EH38E#######, EM10E#######, IHECREXXX, "
             "EGAS/EGADxxx, PRJNAxxx, E-MTAB-xxx (for uses_database/"
             "consolidates_dataset). Cell types and tissues should be "
-            "CL/UBERON labels."
+            "CL/UBERON/IHEC biosample labels."
         )
 
     def enrich_claim(self, claim: dict) -> dict:
         """Enrich a claim with epigenomics CURIEs.
 
-        Per-slot resolution order (first non-None match wins):
+        Resolution delegates to ``_resolver.resolve(value, qualifier)``:
 
-        1. ``accession_to_curie`` — repository accessions (GEO/SRA/ENCODE/
-           EpiRR/EGA/BioProject/ArrayExpress/ChIP-Atlas/Cistrome) resolve
-           deterministically and outrank any free-text match.
-        2. ``ASSAY_INDEX`` — epigenomics assay names.
-        3. ``ASSEMBLY_INDEX`` — reference-genome assembly names.
-        4. ``HISTONE_INDEX`` — histone PTMs / variants / DNA modifications.
-        5. ``TARGET_INDEX`` — TFs and chromatin modifiers.
-        6. ``QC_INDEX`` — QC-metric names.
+        1. Repository accessions (GEO/SRA/ENCODE/EpiRR/EGA/BioProject/
+           ArrayExpress/ChIP-Atlas/Cistrome) resolve deterministically and
+           outrank any free-text match.
+        2. Qualifier-aware preferences then bias the cascade — e.g. an
+           object under ``bound_by`` is tried against ``TARGET_INDEX``
+           before ``HISTONE_INDEX``, and vice versa under ``marked_by``.
+        3. Any remaining indices are tried in the v0.1.0 default order
+           (assay → assembly → histone → target → qc), so any value that
+           resolved in v0.1.0 still resolves to the same source.
 
         Pure function — never mutates the input dict.
         """
         result = copy.deepcopy(claim)
         result.setdefault("ontology_terms", {})
         result.setdefault("xrefs", {})
+
+        qualifier_hint = (
+            result["qualifier"] if isinstance(result.get("qualifier"), str) else None
+        )
+
+        # v0.2.0 §6 — surface deprecated qualifiers via DeprecationWarning
+        # without breaking enrichment: the qualifier_hint used by the
+        # resolver swaps to the replacement, but the claim's qualifier
+        # field is preserved verbatim so the caller sees no mutation.
+        if qualifier_hint in _DEPRECATED_QUALIFIERS:
+            replacement = _DEPRECATED_QUALIFIERS[qualifier_hint]
+            warnings.warn(
+                f"BulkEpigenomicsAdapter qualifier {qualifier_hint!r} is "
+                f"deprecated as of v0.2.0 §6 and will be removed in a "
+                f"future minor release. Use {replacement!r} for generic "
+                f"Hi-C-style contacts, or one of 'loops_with' (explicit "
+                f"loop call), 'anchored_to' (ChIA-PET / HiChIP anchor), "
+                f"'tad_boundary_with' (TAD boundary call), 'compartment_of'"
+                f" (A/B compartment), 'subtad_of' (sub-TAD nesting) for "
+                f"the more-specific 3D-genome semantics.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+            qualifier_hint = replacement
 
         for slot in _ENRICHABLE_SLOTS:
             raw = result.get(slot)
@@ -142,7 +217,7 @@ class BulkEpigenomicsAdapter:
             if not value:
                 continue
 
-            match, source = _resolve(value)
+            match, source = resolve(value, qualifier_hint)
             if match is None:
                 continue
 
@@ -159,28 +234,6 @@ class BulkEpigenomicsAdapter:
         empty graph so the package stays importable and Protocol-conformant.
         """
         return _load_shapes()
-
-
-def _resolve(value: str) -> tuple[dict[str, str] | None, str]:
-    """Try each enrichment source in precedence order. First hit wins.
-
-    Returns ``(match_dict, source_label)`` where ``source_label`` is one of
-    ``"accession" | "assay" | "assembly" | "histone" | "target" | "qc"``.
-    Returns ``(None, "")`` when nothing matches.
-    """
-    if match := accession_to_curie(value):
-        return match, "accession"
-    if match := ASSAY_INDEX.lookup(value):
-        return match, "assay"
-    if match := ASSEMBLY_INDEX.lookup(value):
-        return match, "assembly"
-    if match := HISTONE_INDEX.lookup(value):
-        return match, "histone"
-    if match := TARGET_INDEX.lookup(value):
-        return match, "target"
-    if match := QC_INDEX.lookup(value):
-        return match, "qc"
-    return None, ""
 
 
 def _load_shapes() -> rdflib.Graph:

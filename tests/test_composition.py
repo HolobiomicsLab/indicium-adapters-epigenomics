@@ -83,16 +83,28 @@ def test_qualifier_sets_are_pairwise_disjoint(left, right):
 def test_union_of_qualifiers_has_expected_total_count():
     """Sanity check that the disjoint union has the expected total count.
 
-    Bulk (19) + Single-cell (8) + Array (8) = 35. If a qualifier is added or
-    removed from any sibling, update this number after re-verifying that the
-    pairwise disjointness invariant still holds.
+    Running tally:
+      v0.1.0 — Bulk (19) + Single-cell (8) + Array (8) = 35.
+      v0.2.0 §2 — +chromatin_state_of (bulk) +marker_state_of_cell_type
+                   (single-cell) = 37.
+      v0.2.0 §5 — +classified_as_ccre (bulk) = 38.
+      v0.2.0 §6 — 3D-genome qualifier split: bulk keeps
+                   ``interacts_3d_with`` for one minor version (with
+                   ``DeprecationWarning``) and adds six replacements
+                   (contacts_with, loops_with, anchored_to,
+                   tad_boundary_with, compartment_of, subtad_of), net
+                   +6 = 44.
+
+    If a qualifier is added or removed from any sibling, update this
+    number after re-verifying that the pairwise disjointness invariant
+    still holds.
     """
     union = (
         BulkEpigenomicsAdapter.qualifiers
         | SingleCellEpigenomicsAdapter.qualifiers
         | MethylationArrayEpigenomicsAdapter.qualifiers
     )
-    assert len(union) == 35
+    assert len(union) == 44
     # The disjoint-union arithmetic must agree — this would only fail if one
     # of the pairwise tests above also failed.
     assert len(union) == (

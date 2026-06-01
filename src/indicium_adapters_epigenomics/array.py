@@ -26,15 +26,8 @@ from typing import Final
 
 import rdflib
 
-from indicium_adapters_epigenomics._enrichment import (
-    ASSAY_INDEX,
-    ASSEMBLY_INDEX,
-    HISTONE_INDEX,
-    QC_INDEX,
-    TARGET_INDEX,
-)
 from indicium_adapters_epigenomics._namespaces import EPIGENOMICS_PREFIXES
-from indicium_adapters_epigenomics._registries import accession_to_curie
+from indicium_adapters_epigenomics._resolver import resolve
 
 __all__ = ["MethylationArrayEpigenomicsAdapter"]
 
@@ -68,11 +61,26 @@ class MethylationArrayEpigenomicsAdapter:
     in ``_namespaces.py`` is deferred until a stable identifiers.org or
     upstream registry endpoint is chosen. Consumers that need a CURIE can
     construct one from the bundled ``bare_id`` + ``platform`` fields.
+
+    Every qualifier in the ``qualifiers`` frozenset MUST match
+    ``^[a-z][a-z0-9_]*$`` (snake_case). Required by indicium >= 1.7.0:
+    Perspicacite routes adapter qualifiers to the open
+    ``asb:domainQualifier`` slot, whose SHACL shape enforces exactly this
+    pattern. Non-conforming values would be silently rejected by
+    ``indicium.validate_graph`` at the RDF boundary. The constraint is
+    enforced by ``tests/test_protocol_conformance.py``.
     """
 
     domain_id = "methylation-array-epigenomics"
     api_version = 1
 
+    # Every qualifier MUST match ``^[a-z][a-z0-9_]*$`` (snake_case).
+    # Required by indicium >= 1.7.0: at serialisation time, Perspicacite
+    # routes any qualifier from this set to ``asb:domainQualifier`` (the
+    # open slot for domain vocabularies), which enforces the snake_case
+    # pattern at the SHACL boundary. Non-conforming values would be
+    # rejected by ``indicium.validate_graph``. Enforced for the package
+    # by ``tests/test_protocol_conformance.py``.
     qualifiers: frozenset[str] = frozenset({
         "assayed_with_array",
         "probe_filtered_with",
@@ -123,6 +131,10 @@ class MethylationArrayEpigenomicsAdapter:
         result.setdefault("ontology_terms", {})
         result.setdefault("xrefs", {})
 
+        qualifier_hint = (
+            result["qualifier"] if isinstance(result.get("qualifier"), str) else None
+        )
+
         for slot in _ENRICHABLE_SLOTS:
             raw = result.get(slot)
             if not isinstance(raw, str):
@@ -131,7 +143,7 @@ class MethylationArrayEpigenomicsAdapter:
             if not value:
                 continue
 
-            match, source = _resolve(value)
+            match, source = resolve(value, qualifier_hint)
             if match is not None:
                 result["ontology_terms"][slot] = match["curie"]
                 result["xrefs"][slot] = {**match, "source": source}
@@ -156,23 +168,6 @@ class MethylationArrayEpigenomicsAdapter:
         follow-up task.
         """
         return _load_shapes()
-
-
-def _resolve(value: str) -> tuple[dict[str, str] | None, str]:
-    """Try each enrichment source in precedence order. First hit wins."""
-    if match := accession_to_curie(value):
-        return match, "accession"
-    if match := ASSAY_INDEX.lookup(value):
-        return match, "assay"
-    if match := ASSEMBLY_INDEX.lookup(value):
-        return match, "assembly"
-    if match := HISTONE_INDEX.lookup(value):
-        return match, "histone"
-    if match := TARGET_INDEX.lookup(value):
-        return match, "target"
-    if match := QC_INDEX.lookup(value):
-        return match, "qc"
-    return None, ""
 
 
 def _load_shapes() -> rdflib.Graph:

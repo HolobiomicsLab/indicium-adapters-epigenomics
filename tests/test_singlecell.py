@@ -22,6 +22,8 @@ _EXPECTED_QUALIFIERS = frozenset({
     "enriched_in_cluster",
     "co_accessible_with",
     "localized_in_spatial_domain",
+    # v0.2.0 §2 — chromatin-state markers per cell type.
+    "marker_state_of_cell_type",
 })
 
 
@@ -91,11 +93,13 @@ def test_enrich_claim_resolves_histone_and_target_slots():
 
 @pytest.mark.parametrize(
     "cell_type",
-    ["CD8+ T cell", "neuron", "hepatocyte", "B cell"],
+    # Labels NOT in the v0.2.0 IHEC core biosample index — these still
+    # pass through un-CURIE'd. The index ships a curated seed (~33 of
+    # the most-cited reference biosamples); broader cell-type coverage
+    # tracks the CL / UBERON cascade planned in a later v0.2.0 §.
+    ["neuron", "hepatocyte", "B cell"],
 )
-def test_cell_type_label_in_object_slot_is_not_curie_d_in_v0_1_0(cell_type):
-    """Cell-type (CL) enrichment is deferred to v0.2.0. Plain free-text
-    cell-type labels must pass through without an ``ontology_terms`` entry."""
+def test_cell_type_label_not_in_ihec_index_passes_through_uncuried(cell_type):
     a = SingleCellEpigenomicsAdapter()
     out = a.enrich_claim({
         "subject": "some_peak",
@@ -103,6 +107,33 @@ def test_cell_type_label_in_object_slot_is_not_curie_d_in_v0_1_0(cell_type):
         "object": cell_type,
     })
     assert "object" not in out["ontology_terms"]
+
+
+@pytest.mark.parametrize(
+    "cell_type, expected_curie",
+    [
+        # v0.2.0 §4 — these now resolve via IHEC_BIOSAMPLE.
+        ("CD8+ T cell", "IHECBio:CD8_T_cell"),
+        ("CD4+ T cell", "IHECBio:CD4_T_cell"),
+        ("K562", "IHECBio:K562"),
+        ("GM12878", "IHECBio:GM12878"),
+    ],
+)
+def test_cell_type_label_in_ihec_index_resolves_to_ihecbio(
+    cell_type, expected_curie
+):
+    """v0.2.0 §4 added the IHEC biosample matrix; cell-type labels
+    matching the curated seed now resolve to ``IHECBio:`` CURIEs under
+    ``accessible_in_cell_type`` (and the rest of the §4 qualifier
+    preferences). This pins the new behaviour.
+    """
+    a = SingleCellEpigenomicsAdapter()
+    out = a.enrich_claim({
+        "subject": "some_peak",
+        "qualifier": "accessible_in_cell_type",
+        "object": cell_type,
+    })
+    assert out["ontology_terms"]["object"] == expected_curie
 
 
 # --- xrefs payload shape ----------------------------------------------------

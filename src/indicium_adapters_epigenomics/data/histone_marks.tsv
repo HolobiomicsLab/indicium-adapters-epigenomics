@@ -43,8 +43,3 @@ H2A.X	H2AX|H2A-X|gammaH2AX|γH2AX	UniProt:P16104	Histone H2AX	variant
 H3.3	H3-3|H3F3A|H3F3B	UniProt:P84243	Histone H3.3	variant
 macroH2A	macroH2A1|H2AFY	UniProt:O75367	Core histone macro-H2A.1	variant
 CENP-A	CENPA|CenH3	UniProt:P49450	Histone H3-like centromeric protein A	variant
-5mC	5-methylcytosine|m5C|5-mC	CHEBI:27551	5-methylcytosine	dna_modification
-5hmC	5-hydroxymethylcytosine|5-hmC|5-(hydroxymethyl)cytosine	CHEBI:76792	5-(hydroxymethyl)cytosine	dna_modification
-5fC	5-formylcytosine|5-fC	CHEBI:76794	5-formylcytosine	dna_modification
-5caC	5-carboxylcytosine|5-caC	EpiHist:5caC	5-carboxylcytosine	dna_modification
-6mA	N6-methyladenine|6mdA|N6-methyl-2-deoxyadenosine	EpiHist:6mA	N6-methyladenine	dna_modification

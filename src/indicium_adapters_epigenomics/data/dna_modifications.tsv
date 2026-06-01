@@ -1,0 +1,6 @@
+symbol	aliases	curie	label	type	verified
+5mC	5-methylcytosine|m5C|5-mC|methylcytosine	CHEBI:27551	5-methylcytosine	cytosine_methylation	chebi
+5hmC	5-hydroxymethylcytosine|5-hmC|5-(hydroxymethyl)cytosine|hmC|hydroxymethylcytosine	CHEBI:76792	5-(hydroxymethyl)cytosine	cytosine_hydroxymethylation	chebi
+5fC	5-formylcytosine|5-fC|formylcytosine	CHEBI:76794	5-formylcytosine	cytosine_formylation	chebi
+5caC	5-carboxylcytosine|5-caC|carboxylcytosine|5-carboxylC	EpiMod:5caC	5-carboxylcytosine	cytosine_carboxylation	local
+6mA	N6-methyladenine|6mdA|N6-methyl-2-deoxyadenosine|m6A_DNA|adenine_methylation	EpiMod:6mA	N6-methyladenine	adenine_methylation	local

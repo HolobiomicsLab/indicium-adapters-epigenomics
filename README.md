@@ -2,7 +2,15 @@
 
 Epigenomics-domain DomainAdapters for the [indicium](https://github.com/holobiomicslab/indicium) ecosystem.
 
-v0.1.0 ships three sibling adapters:
+**v0.2.0** adds a qualifier-aware shared resolver and five new local
+vocabularies — ChromHMM / Segway chromatin states (`EpiState:`),
+DNA-modification chemistries split into a dedicated index (`EpiMod:`),
+the IHEC core biosample matrix (`IHECBio:`), the ENCODE SCREEN cCRE
+classification (`EpiCCRE:`) and 3D-genome compartments (`EpiConf:`).
+See [CHANGELOG.md](CHANGELOG.md) for the full release notes and
+[ROADMAP.md](ROADMAP.md) for the §7-§11 plan.
+
+v0.1.0 shipped three sibling adapters:
 
 - **`BulkEpigenomicsAdapter`** — bulk epigenomics assay claims covering
   WGBS / RRBS / EM-seq (DNA methylation), ChIP-seq / CUT&RUN / CUT&Tag

@@ -22,6 +22,13 @@ _ACCESSION_PATTERNS: Final[tuple[tuple[re.Pattern[str], str, str], ...]] = (
     # ENCODE — fixed-width type-tag + 6 alphanumerics (digits or letters in any
     # order; ENCODE assigns both forms in the wild). Must precede SRA / GEO.
     (re.compile(r"^ENC[A-Z]{2}[A-Z0-9]{6}$"), "ENCODE", "ENCODE"),
+    # ENCODE SCREEN cCRE accessions (v0.2.0 §5) — ``EH38E`` for hg38 and
+    # ``EM10E`` for mm10, followed by 7 digits. Width is fixed at 12
+    # characters total. These are ENCODE objects so we route to the same
+    # ``ENCODE:`` CURIE prefix as the rest of ENCODE, with a SCREEN-specific
+    # repository label for downstream filtering.
+    (re.compile(r"^EH38E\d{7}$"), "ENCODE", "ENCODE SCREEN"),
+    (re.compile(r"^EM10E\d{7}$"), "ENCODE", "ENCODE SCREEN"),
     # ArrayExpress / BioStudies-AE
     (re.compile(r"^E-[A-Z]{4}-\d+$"), "ArrayExpress", "ArrayExpress"),
     # EGA — 11 trailing digits, type letter S/D/F/B/N

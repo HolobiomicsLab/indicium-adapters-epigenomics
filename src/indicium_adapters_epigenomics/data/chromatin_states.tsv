@@ -1,0 +1,43 @@
+symbol	aliases	curie	label	type	models
+TssA	Active_TSS|ActiveTSS|Active TSS	EpiState:TssA	Active TSS	active_promoter	chromhmm_15|chromhmm_18|chromhmm_25
+TssAFlnk	TssAFlanking|FlankingActiveTSS|Flanking Active TSS	EpiState:TssAFlnk	Flanking Active TSS	flanking_promoter	chromhmm_15
+TssFlnk	Flanking_TSS|FlankingTSS|Flanking TSS	EpiState:TssFlnk	Flanking TSS	flanking_promoter	chromhmm_18
+TssFlnkU	TssFlankingUpstream|UpstreamFlankingTSS	EpiState:TssFlnkU	Upstream Flanking TSS	flanking_promoter	chromhmm_18
+TssFlnkD	TssFlankingDownstream|DownstreamFlankingTSS	EpiState:TssFlnkD	Downstream Flanking TSS	flanking_promoter	chromhmm_18
+PromU	PromoterUpstream|Promoter Upstream	EpiState:PromU	Promoter Upstream	flanking_promoter	chromhmm_25
+PromD1	PromoterDownstream1|Promoter Downstream 1	EpiState:PromD1	Promoter Downstream 1	flanking_promoter	chromhmm_25
+PromD2	PromoterDownstream2|Promoter Downstream 2	EpiState:PromD2	Promoter Downstream 2	flanking_promoter	chromhmm_25
+TxFlnk	TranscribedFlanking|TranscribedAtGeneFlanks	EpiState:TxFlnk	Transcribed at gene 5' and 3'	transcription	chromhmm_15
+Tx	StrongTx|Strong_Transcription|Transcription	EpiState:Tx	Strong Transcription	transcription	chromhmm_15|chromhmm_18|chromhmm_25
+TxWk	WeakTx|Weak_Transcription|Weak Transcription	EpiState:TxWk	Weak Transcription	weak_transcription	chromhmm_15|chromhmm_18|chromhmm_25
+Tx5	Tx5prime|Transcribed5prime|Transcribed 5'	EpiState:Tx5	Transcribed 5'	transcription	chromhmm_25
+Tx3	Tx3prime|Transcribed3prime|Transcribed 3'	EpiState:Tx3	Transcribed 3'	transcription	chromhmm_25
+TxReg	TranscribedRegulatory	EpiState:TxReg	Transcribed Regulatory	enhancer	chromhmm_25
+TxEnh5	TxEnh5prime|TranscribedEnhancer5prime	EpiState:TxEnh5	Transcribed 5' Enhancer	enhancer	chromhmm_25
+TxEnh3	TxEnh3prime|TranscribedEnhancer3prime	EpiState:TxEnh3	Transcribed 3' Enhancer	enhancer	chromhmm_25
+TxEnhW	TranscribedWeakEnhancer	EpiState:TxEnhW	Transcribed Weak Enhancer	weak_enhancer	chromhmm_25
+EnhG	GenicEnhancer|GenicEnhancers	EpiState:EnhG	Genic Enhancer	enhancer	chromhmm_15
+EnhG1	GenicEnhancer1	EpiState:EnhG1	Genic Enhancer 1	enhancer	chromhmm_18
+EnhG2	GenicEnhancer2	EpiState:EnhG2	Genic Enhancer 2	enhancer	chromhmm_18
+EnhA1	ActiveEnhancer1|Active Enhancer 1	EpiState:EnhA1	Active Enhancer 1	enhancer	chromhmm_18|chromhmm_25
+EnhA2	ActiveEnhancer2|Active Enhancer 2	EpiState:EnhA2	Active Enhancer 2	enhancer	chromhmm_18|chromhmm_25
+EnhAF	ActiveEnhancerFlank|Active Enhancer Flank	EpiState:EnhAF	Active Enhancer Flank	enhancer	chromhmm_25
+EnhAc	AcetylatedEnhancer|AcetylationEnhancer	EpiState:EnhAc	Acetylated Enhancer	enhancer	chromhmm_25
+EnhW1	WeakEnhancer1	EpiState:EnhW1	Weak Enhancer 1	weak_enhancer	chromhmm_25
+EnhW2	WeakEnhancer2	EpiState:EnhW2	Weak Enhancer 2	weak_enhancer	chromhmm_25
+EnhWk	WeakEnhancer|Weak Enhancer|Weak_Enhancer	EpiState:EnhWk	Weak Enhancer	weak_enhancer	chromhmm_18
+Enh	Enhancer|Enhancers	EpiState:Enh	Enhancer	enhancer	chromhmm_15
+ActiveEnhancer	Active_Enhancer|Active Enhancer	EpiState:ActiveEnhancer	Active Enhancer	enhancer	segway
+DNase	DNaseOnly|DNase only	EpiState:DNase	DNase Only	accessibility_only	chromhmm_25
+ZNF/Rpts	ZNF_Rpts|ZnfRpts|ZNFRepeats|ZNFRpts	EpiState:ZNF_Rpts	ZNF Genes and Repeats	znf_repeat	chromhmm_15|chromhmm_18|chromhmm_25
+Het	Heterochromatin|Heterochrom	EpiState:Het	Heterochromatin	heterochromatin	chromhmm_15|chromhmm_18|chromhmm_25|segway
+TssBiv	BivalentTSS|Bivalent_TSS|Bivalent TSS|PoisedTSS	EpiState:TssBiv	Bivalent Poised TSS	bivalent_promoter	chromhmm_15|chromhmm_18
+BivFlnk	BivalentFlanking|FlankingBivalent	EpiState:BivFlnk	Flanking Bivalent TSS Enhancer	bivalent_flanking	chromhmm_15
+EnhBiv	BivalentEnhancer|Bivalent_Enhancer|Bivalent Enhancer	EpiState:EnhBiv	Bivalent Enhancer	bivalent_enhancer	chromhmm_15|chromhmm_18
+PromP	PoisedPromoter|Poised Promoter	EpiState:PromP	Poised Promoter	bivalent_promoter	chromhmm_25
+PromBiv	BivalentPromoter|Bivalent Promoter	EpiState:PromBiv	Bivalent Promoter	bivalent_promoter	chromhmm_25
+Bivalent	BivalentChromatin	EpiState:Bivalent	Bivalent	bivalent_promoter	segway
+ReprPC	RepressedPolycomb|RepressedPolyComb|Repressed_Polycomb|Repressed Polycomb|Polycomb	EpiState:ReprPC	Repressed Polycomb	repressed_polycomb	chromhmm_15|chromhmm_18|chromhmm_25|segway
+ReprPCWk	WeakRepressedPolycomb|Weak Repressed Polycomb	EpiState:ReprPCWk	Weak Repressed Polycomb	weak_repressed_polycomb	chromhmm_15|chromhmm_18
+Repressed	RepressedChromatin	EpiState:Repressed	Repressed	repressed_polycomb	segway
+Quies	Quiescent|QuiescentLow|Quiescent_Low|Quiescent/Low|Low	EpiState:Quies	Quiescent Low	quiescent	chromhmm_15|chromhmm_18|chromhmm_25|segway

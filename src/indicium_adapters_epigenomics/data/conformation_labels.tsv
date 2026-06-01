@@ -1,0 +1,8 @@
+symbol	aliases	curie	label	type
+A	Compartment A|A_compartment|compartment_A	EpiConf:A	A compartment	active_compartment
+B	Compartment B|B_compartment|compartment_B	EpiConf:B	B compartment	inactive_compartment
+A1	A1 subcompartment|A1_sub|subA1	EpiConf:A1	A1 sub-compartment	active_subcompartment
+A2	A2 subcompartment|A2_sub|subA2	EpiConf:A2	A2 sub-compartment	active_subcompartment
+B1	B1 subcompartment|B1_sub|subB1	EpiConf:B1	B1 sub-compartment	inactive_subcompartment
+B2	B2 subcompartment|B2_sub|subB2	EpiConf:B2	B2 sub-compartment	inactive_subcompartment
+B3	B3 subcompartment|B3_sub|subB3	EpiConf:B3	B3 sub-compartment	inactive_subcompartment

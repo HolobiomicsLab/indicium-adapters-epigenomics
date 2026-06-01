@@ -24,15 +24,8 @@ from typing import Final
 
 import rdflib
 
-from indicium_adapters_epigenomics._enrichment import (
-    ASSAY_INDEX,
-    ASSEMBLY_INDEX,
-    HISTONE_INDEX,
-    QC_INDEX,
-    TARGET_INDEX,
-)
 from indicium_adapters_epigenomics._namespaces import EPIGENOMICS_PREFIXES
-from indicium_adapters_epigenomics._registries import accession_to_curie
+from indicium_adapters_epigenomics._resolver import resolve
 
 __all__ = ["SingleCellEpigenomicsAdapter"]
 
@@ -54,11 +47,26 @@ class SingleCellEpigenomicsAdapter:
     anatomy (UBERON) enrichment for the ``*_in_cell_type`` qualifiers is
     deferred to v0.2.0 — see ``ROADMAP.md`` — once a reference paper anchors
     the bundled term set.
+
+    Every qualifier in the ``qualifiers`` frozenset MUST match
+    ``^[a-z][a-z0-9_]*$`` (snake_case). Required by indicium >= 1.7.0:
+    Perspicacite routes adapter qualifiers to the open
+    ``asb:domainQualifier`` slot, whose SHACL shape enforces exactly this
+    pattern. Non-conforming values would be silently rejected by
+    ``indicium.validate_graph`` at the RDF boundary. The constraint is
+    enforced by ``tests/test_protocol_conformance.py``.
     """
 
     domain_id = "single-cell-epigenomics"
     api_version = 1
 
+    # Every qualifier MUST match ``^[a-z][a-z0-9_]*$`` (snake_case).
+    # Required by indicium >= 1.7.0: at serialisation time, Perspicacite
+    # routes any qualifier from this set to ``asb:domainQualifier`` (the
+    # open slot for domain vocabularies), which enforces the snake_case
+    # pattern at the SHACL boundary. Non-conforming values would be
+    # rejected by ``indicium.validate_graph``. Enforced for the package
+    # by ``tests/test_protocol_conformance.py``.
     qualifiers: frozenset[str] = frozenset({
         # Cell-resolution qualifiers — disjoint from the bulk and array sets.
         "accessible_in_cell_type",
@@ -69,6 +77,10 @@ class SingleCellEpigenomicsAdapter:
         "enriched_in_cluster",
         "co_accessible_with",
         "localized_in_spatial_domain",
+        # v0.2.0 §2 — cell-type-resolved segmentation-state markers.
+        # Subject is a cell type / cluster, object is a ChromHMM or
+        # Segway state label characteristic of that population.
+        "marker_state_of_cell_type",
     })
 
     ontology_prefixes: dict[str, str] = EPIGENOMICS_PREFIXES
@@ -81,11 +93,13 @@ class SingleCellEpigenomicsAdapter:
             "accessible_in_cell_type, methylated_in_cell_type, "
             "bound_in_cell_type, marker_peak_of_cell_type, "
             "marker_dmr_of_cell_type, enriched_in_cluster, "
-            "co_accessible_with, localized_in_spatial_domain. "
-            "Subjects/objects should typically be CL cell-type labels, "
-            "UBERON tissue labels, histone marks, chromatin-target gene "
-            "symbols, assay/tool names, or cluster identifiers like "
-            "'cluster_4'."
+            "co_accessible_with, localized_in_spatial_domain, "
+            "marker_state_of_cell_type. Subjects/objects should "
+            "typically be CL cell-type labels, UBERON tissue labels, "
+            "histone marks, chromatin-target gene symbols, assay/tool "
+            "names, cluster identifiers like 'cluster_4', or ChromHMM / "
+            "Segway segmentation labels like TssA, EnhA1, ReprPC, Quies "
+            "(for marker_state_of_cell_type)."
         )
 
     def enrich_claim(self, claim: dict) -> dict:
@@ -112,6 +126,10 @@ class SingleCellEpigenomicsAdapter:
         result.setdefault("ontology_terms", {})
         result.setdefault("xrefs", {})
 
+        qualifier_hint = (
+            result["qualifier"] if isinstance(result.get("qualifier"), str) else None
+        )
+
         for slot in _ENRICHABLE_SLOTS:
             raw = result.get(slot)
             if not isinstance(raw, str):
@@ -120,7 +138,7 @@ class SingleCellEpigenomicsAdapter:
             if not value:
                 continue
 
-            match, source = _resolve(value)
+            match, source = resolve(value, qualifier_hint)
             if match is None:
                 continue
 
@@ -136,23 +154,6 @@ class SingleCellEpigenomicsAdapter:
         Returns an empty graph until the TTL is added by the follow-up task.
         """
         return _load_shapes()
-
-
-def _resolve(value: str) -> tuple[dict[str, str] | None, str]:
-    """Same precedence as bulk; cell-type / anatomy branches are deferred."""
-    if match := accession_to_curie(value):
-        return match, "accession"
-    if match := ASSAY_INDEX.lookup(value):
-        return match, "assay"
-    if match := ASSEMBLY_INDEX.lookup(value):
-        return match, "assembly"
-    if match := HISTONE_INDEX.lookup(value):
-        return match, "histone"
-    if match := TARGET_INDEX.lookup(value):
-        return match, "target"
-    if match := QC_INDEX.lookup(value):
-        return match, "qc"
-    return None, ""
 
 
 def _load_shapes() -> rdflib.Graph:

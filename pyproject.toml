@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "indicium-adapters-epigenomics"
-version = "0.1.0"
+version = "0.2.0"
 description = "Epigenomics-domain DomainAdapters for the indicium ecosystem"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -24,8 +24,8 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
 dependencies = [
-    "indicium-adapters>=0.4.0",
-    "indicium>=1.4",
+    "indicium-adapters>=0.5.0",
+    "indicium>=1.7",
     "rdflib>=7.0",
     "pyshacl>=0.25",
 ]

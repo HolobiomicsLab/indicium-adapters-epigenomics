@@ -1,24 +1,27 @@
-"""Histone-modification name → EpiHist / UniProt / CHEBI CURIE resolver.
+"""Histone-modification name → EpiHist / UniProt CURIE resolver.
 
 Loads ``data/histone_marks.tsv`` once at import time via
-``importlib.resources``. The TSV ships ~50 canonical marks plus the major
-histone variants (H2A.Z, H2A.X / γH2AX, H3.3, macroH2A, CENP-A) and the
-core DNA-modification chemistries (5mC, 5hmC, 5fC, 5caC, 6mA).
+``importlib.resources``. The TSV ships ~45 canonical histone PTM marks
+plus the major histone variants (H2A.Z, H2A.X / γH2AX, H3.3, macroH2A,
+CENP-A).
+
+DNA-modification chemistries (5mC, 5hmC, 5fC, 5caC, 6mA) moved out to
+``_dna_mods.py`` in v0.2.0 §3 — they are conceptually different from
+histone PTMs (different substrate, different enzymes, different
+assays), and v0.2.0 introduces a methylation-specific qualifier
+preference that needs a dedicated source label in ``_resolver.py``.
 
 Lookup is case-insensitive and tolerant of common notational variants —
 ``H3K27Ac``, ``H3K27ac``, ``H3 K27 ac`` and ``H3K27-ac`` all resolve to the
 same row.
 
-CURIE choice policy in v0.1.0:
+CURIE choice policy:
 - Histone PTM symbols (e.g. H3K27ac) → local ``EpiHist:`` vocabulary. PSI-MOD
   (``MOD:``) coverage of position-specific histone PTMs is incomplete (many
   conventional IDs in the literature point at unrelated PSI-MOD terms or have
   no upstream PSI-MOD entry at all). The local vocabulary is documented and
   promoted via the ROADMAP — see also build_mod_index.py.
 - Histone variants → UniProt (variants are protein isoforms, not modifications).
-- DNA modifications → CHEBI when verified; otherwise local ``EpiHist:`` (5mC
-  is verified as CHEBI:27551; 5hmC/5fC/5caC/6mA stay local pending verified
-  ChEBI IDs).
 """
 from __future__ import annotations
 

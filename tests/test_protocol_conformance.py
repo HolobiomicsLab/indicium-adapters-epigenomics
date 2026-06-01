@@ -15,7 +15,12 @@ import rdflib
 
 pytest.importorskip("indicium_adapters")
 
-from indicium_adapters import CURRENT_API_VERSION, DomainAdapter, SHACLProvider  # noqa: E402
+from indicium_adapters import (  # noqa: E402
+    CURRENT_API_VERSION,
+    DomainAdapter,
+    SHACLProvider,
+    discover_adapters,
+)
 
 from indicium_adapters_epigenomics import (  # noqa: E402
     BulkEpigenomicsAdapter,
@@ -93,6 +98,31 @@ def test_qualifiers_are_a_nonempty_lowercase_snake_case_frozenset(cls):
     for q in qs:
         assert isinstance(q, str)
         assert _SNAKE_RE.match(q), f"qualifier {q!r} is not lowercase snake_case"
+
+
+def test_every_discovered_adapter_qualifier_is_snake_case():
+    """Defence-in-depth: the parametrised test above iterates over the
+    hardcoded ``_ADAPTERS`` tuple, which a future sibling could bypass if
+    its entry-point is added to ``pyproject.toml`` but its class is
+    forgotten in the tuple. This variant goes through the
+    ``indicium-adapters`` discovery helper instead, so any adapter
+    registered under ``indicium.adapters`` is checked, even if the test
+    module has not been updated for it.
+
+    Required by indicium >= 1.7.0: ``asb:domainQualifier`` enforces
+    ``^[a-z][a-z0-9_]*$`` at the SHACL boundary; non-conforming qualifiers
+    would be silently rejected by ``indicium.validate_graph``.
+    """
+    discovered = discover_adapters()
+    offenders: list[tuple[str, str]] = []
+    for name, adapter in discovered.items():
+        for q in adapter.qualifiers:
+            if not _SNAKE_RE.match(q):
+                offenders.append((name, q))
+    assert not offenders, (
+        "non-snake_case qualifiers on discovered adapters: "
+        + ", ".join(f"{name}:{q}" for name, q in offenders)
+    )
 
 
 @pytest.mark.parametrize(
