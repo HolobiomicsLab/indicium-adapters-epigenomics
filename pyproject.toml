@@ -47,6 +47,15 @@ Repository = "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics"
 Issues = "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics/issues"
 Changelog = "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics/blob/main/CHANGELOG.md"
 
+# Local development: resolve the indicium core + Protocol from editable sibling
+# checkouts instead of PyPI (mirrors the indicium-adapters / -metabolomics /
+# -transcriptomics repos). Without this, `uv sync` resolves `indicium>=1.7`
+# against the unrelated PyPI `indicium` package and fails. Ignored by consumers
+# who install from the wheel.
+[tool.uv.sources]
+indicium = { path = "../indicium", editable = true }
+indicium-adapters = { path = "../indicium-adapters", editable = true }
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/indicium_adapters_epigenomics"]
 

@@ -161,6 +161,20 @@ def test_enrich_claim_detects_illumina_probe_id_in_object_slot():
     assert out["xrefs"]["object"]["bare_id"] == "cg00000029"
 
 
+def test_array_justification_present_for_assay_absent_for_probe():
+    """A resolved array model carries a SEMAPV justification; the xrefs-only
+    probe-id path gets none (no ontology_terms ⇒ no justification)."""
+    a = MethylationArrayEpigenomicsAdapter()
+    out = a.enrich_claim({
+        "subject": "EPIC v2",
+        "qualifier": "differentially_methylated_at_probe",
+        "object": "cg00000029",
+    })
+    assert out["ontology_term_justifications"]["subject"] == "semapv:LexicalMatching"
+    assert "object" not in out["ontology_term_justifications"]
+    assert set(out["ontology_term_justifications"]) == set(out["ontology_terms"])
+
+
 @pytest.mark.parametrize(
     "bad_probe",
     [

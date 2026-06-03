@@ -88,6 +88,19 @@ def test_enrich_claim_resolves_histone_and_target_slots():
     assert out["xrefs"]["object"]["source"] == "target"
 
 
+def test_enrich_claim_sets_semapv_justifications_per_resolved_slot():
+    a = SingleCellEpigenomicsAdapter()
+    out = a.enrich_claim({
+        "subject": "H3K27ac",
+        "qualifier": "marker_peak_of_cell_type",
+        "object": "CTCF",
+    })
+    # Curated controlled-vocabulary (histone / target) lookups → lexical matching.
+    assert out["ontology_term_justifications"]["subject"] == "semapv:LexicalMatching"
+    assert out["ontology_term_justifications"]["object"] == "semapv:LexicalMatching"
+    assert set(out["ontology_term_justifications"]) == set(out["ontology_terms"])
+
+
 # --- cell-type slot — deferred to v0.2.0 -----------------------------------
 
 

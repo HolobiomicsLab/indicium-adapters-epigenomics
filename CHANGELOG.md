@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased]
+
+### Added — SEMAPV mapping-justifications (indicium-adapters A-convention)
+
+- All three adapters' `enrich_claim` now populate an optional
+  `ontology_term_justifications` companion-map alongside `ontology_terms`,
+  keyed on the same slots, carrying the SEMAPV
+  (https://w3id.org/semapv/vocab/) justification for *how* each CURIE was
+  obtained: `semapv:CompositeMatching` for accession→CURIE registry
+  resolution, `semapv:LexicalMatching` for the curated controlled-vocabulary
+  name/label lookups. The mapping is shared in `_resolver.py`
+  (`SOURCE_TO_SEMAPV` + `justification_for`), keyed on the resolver's `source`
+  label, so the justification stays honest per mechanism. The xrefs-only
+  probe-id path (no `ontology_terms`) correctly emits no justification.
+  This is the companion-map convention documented by the `indicium-adapters`
+  core `DomainAdapter` Protocol; downstream consumers (e.g. Perspicacité)
+  promote `ontology_terms` + this map to first-class `sssom:Mapping` nodes.
+
+### Changed — local development environment
+
+- Added `[tool.uv.sources]` pinning `indicium` + `indicium-adapters` to editable
+  sibling checkouts (`../indicium`, `../indicium-adapters`), mirroring the
+  `indicium-adapters` / `-metabolomics` / `-transcriptomics` repos. Without it,
+  `uv sync` resolves `indicium>=1.7` against the unrelated PyPI `indicium`
+  package and fails. Ignored by consumers installing from the wheel.
+
+---
+
 ## [0.2.0] - 2026-06-01
 
 Domain-specific vocabulary expansion under the cross-adapter conventions

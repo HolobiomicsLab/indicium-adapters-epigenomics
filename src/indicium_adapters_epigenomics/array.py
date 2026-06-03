@@ -27,7 +27,7 @@ from typing import Final
 import rdflib
 
 from indicium_adapters_epigenomics._namespaces import EPIGENOMICS_PREFIXES
-from indicium_adapters_epigenomics._resolver import resolve
+from indicium_adapters_epigenomics._resolver import justification_for, resolve
 
 __all__ = ["MethylationArrayEpigenomicsAdapter"]
 
@@ -129,6 +129,7 @@ class MethylationArrayEpigenomicsAdapter:
         """
         result = copy.deepcopy(claim)
         result.setdefault("ontology_terms", {})
+        result.setdefault("ontology_term_justifications", {})
         result.setdefault("xrefs", {})
 
         qualifier_hint = (
@@ -146,6 +147,7 @@ class MethylationArrayEpigenomicsAdapter:
             match, source = resolve(value, qualifier_hint)
             if match is not None:
                 result["ontology_terms"][slot] = match["curie"]
+                result["ontology_term_justifications"][slot] = justification_for(source)
                 result["xrefs"][slot] = {**match, "source": source}
                 continue
 
