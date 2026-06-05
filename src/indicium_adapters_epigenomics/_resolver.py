@@ -49,7 +49,7 @@ from indicium_adapters_epigenomics._enrichment import (
 )
 from indicium_adapters_epigenomics._registries import accession_to_curie
 
-__all__ = ["resolve", "Source"]
+__all__ = ["resolve", "Source", "SOURCE_TO_SEMAPV", "justification_for"]
 
 
 # Source labels — also used as keys in `_QUALIFIER_PREFERENCES`. Kept as
@@ -69,6 +69,36 @@ CCRE: Final = "ccre"
 CONFORMATION: Final = "conformation"
 
 Source = str  # alias for the literal source label
+
+
+# SEMAPV (https://w3id.org/semapv/vocab/) mapping-justification per source —
+# honest provenance for *how* each ontology_terms CURIE was obtained. Accession
+# → CURIE registry resolution is identifier (composite) matching; the curated
+# controlled-vocabulary lookups match the input name/label string against a
+# bundled vocabulary, i.e. lexical matching. Adapters expose this as the
+# optional ``ontology_term_justifications`` companion-map documented by the
+# indicium-adapters core DomainAdapter Protocol; downstream consumers (e.g.
+# Perspicacite) promote ``ontology_terms`` + this map to first-class
+# ``sssom:Mapping`` nodes carrying the SEMAPV justification.
+SOURCE_TO_SEMAPV: Final[dict[str, str]] = {
+    ACCESSION: "semapv:CompositeMatching",
+    ASSAY: "semapv:LexicalMatching",
+    ASSEMBLY: "semapv:LexicalMatching",
+    HISTONE: "semapv:LexicalMatching",
+    TARGET: "semapv:LexicalMatching",
+    QC: "semapv:LexicalMatching",
+    CHROM_STATE: "semapv:LexicalMatching",
+    DNA_MOD: "semapv:LexicalMatching",
+    IHEC_BIOSAMPLE: "semapv:LexicalMatching",
+    CCRE: "semapv:LexicalMatching",
+    CONFORMATION: "semapv:LexicalMatching",
+}
+
+
+def justification_for(source: str) -> str:
+    """Return the SEMAPV mapping-justification CURIE for a resolver *source*
+    label. Falls back to lexical matching for any unmapped source."""
+    return SOURCE_TO_SEMAPV.get(source, "semapv:LexicalMatching")
 
 
 # Fixed default order — extends the v0.1.0 cascade. New indices are

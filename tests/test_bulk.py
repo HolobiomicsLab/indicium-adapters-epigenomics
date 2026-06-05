@@ -70,6 +70,36 @@ def test_accession_to_curie_returns_none_for_unrecognised_token():
     assert accession_to_curie("") is None
 
 
+# --- SEMAPV mapping-justification (indicium-adapters A-convention) -----------
+
+
+def test_enrich_claim_sets_composite_justification_for_accession():
+    a = BulkEpigenomicsAdapter()
+    out = a.enrich_claim(_make_claim(subject="ENCSR000ABC"))
+    assert out["ontology_terms"]["subject"] == "ENCODE:ENCSR000ABC"
+    assert out["ontology_term_justifications"]["subject"] == "semapv:CompositeMatching"
+
+
+def test_enrich_claim_sets_lexical_justification_for_curated_lookup():
+    a = BulkEpigenomicsAdapter()
+    out = a.enrich_claim(_make_claim(subject="ChIP-seq"))
+    assert out["xrefs"]["subject"]["source"] == "assay"
+    assert out["ontology_term_justifications"]["subject"] == "semapv:LexicalMatching"
+
+
+def test_justification_keys_mirror_ontology_terms_keys():
+    a = BulkEpigenomicsAdapter()
+    out = a.enrich_claim(_make_claim(subject="ENCSR000ABC", object="ChIP-seq"))
+    assert set(out["ontology_term_justifications"]) == set(out["ontology_terms"])
+
+
+def test_no_justification_when_nothing_resolves():
+    a = BulkEpigenomicsAdapter()
+    out = a.enrich_claim(_make_claim(subject="an unresolvable free-text value"))
+    assert out["ontology_terms"] == {}
+    assert out["ontology_term_justifications"] == {}
+
+
 # --- assay enrichment -------------------------------------------------------
 
 
