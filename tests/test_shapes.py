@@ -24,7 +24,7 @@ from indicium_adapters_epigenomics import (  # noqa: E402
 
 # Turtle preamble shared by every data-graph fixture.
 _PREFIXES = """
-@prefix asb: <http://holobiomicslab.org/asb/> .
+@prefix asb: <https://w3id.org/asb#> .
 @prefix epi: <http://holobiomicslab.org/adapters/epigenomics/> .
 """
 

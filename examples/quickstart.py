@@ -86,7 +86,7 @@ def main() -> None:
     # adapter just resolved for H3K27ac.
     marked_by_curie = enriched_bulk["ontology_terms"]["subject"]
     data_ttl = f"""
-    @prefix asb: <http://holobiomicslab.org/asb/> .
+    @prefix asb: <https://w3id.org/asb#> .
     @prefix epi: <http://holobiomicslab.org/adapters/epigenomics/> .
     <urn:{enriched_bulk["id"]}> a asb:Claim ; epi:marked_by "{marked_by_curie}" .
     """

@@ -219,7 +219,7 @@ def coverage_summary(claims: list[dict], label: str) -> None:
 
 def shacl_check(claim: dict, adapter) -> None:
     """Materialise a single claim as RDF and run pyshacl against the adapter."""
-    asb = rdflib.Namespace("http://holobiomicslab.org/asb/")
+    asb = rdflib.Namespace("https://w3id.org/asb#")
     epi = rdflib.Namespace("http://holobiomicslab.org/adapters/epigenomics/")
     enriched = adapter.enrich_claim(claim)
     g = rdflib.Graph()
