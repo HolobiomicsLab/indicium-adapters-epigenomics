@@ -25,7 +25,7 @@ classifiers = [
 ]
 dependencies = [
     "indicium-adapters>=0.5.0",
-    "indicium>=1.7",
+    "indicium-standard>=2.0.0",
     "rdflib>=7.0",
     "pyshacl>=0.25",
 ]
@@ -53,7 +53,7 @@ Changelog = "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics/blo
 # against the unrelated PyPI `indicium` package and fails. Ignored by consumers
 # who install from the wheel.
 [tool.uv.sources]
-indicium = { path = "../indicium", editable = true }
+indicium-standard = { path = "../indicium", editable = true }
 indicium-adapters = { path = "../indicium-adapters", editable = true }
 
 [tool.hatch.build.targets.wheel]
