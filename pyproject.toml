@@ -7,7 +7,7 @@ name = "indicium-adapters-epigenomics"
 version = "0.2.0"
 description = "Epigenomics-domain DomainAdapters for the indicium ecosystem"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 license = {file = "LICENSE"}
 authors = [{name = "Deniz Erturk", email = "denizert2000@gmail.com"}]
 keywords = [
