@@ -85,11 +85,18 @@ class BulkEpigenomicsAdapter:
     # ``domain_id`` and unions the declared vocabulary into its controlled
     # terms (agentic_science_builder.classification._adapter_vocab). Without
     # it an epigenomics paper classifies as "other" and carries no technique.
-    # ``techniques`` is derived from the assay table's own rows for this
-    # adapter's ``assay_class``, so the vocabulary moves with the resolver
-    # rather than with a second hand-maintained list.
+    # Both sets below come from the 2026-08-25 cross-domain vocabulary audit;
+    # terms two sciences both declared were dropped, as they separate neither.
     primary_domain = "epigenomics"
-    subdomains: tuple[str, ...] = (domain_id,)
+    subdomains: tuple[str, ...] = (
+        "dna-hydroxymethylation",
+        "histone-modification",
+        "chromatin-accessibility",
+        "chromatin-structure",
+        "dna-packaging",
+        "nucleosome-positioning",
+        "3d-genome-organization",
+    )
     techniques: tuple[str, ...] = techniques_for_class("bulk_sequencing")
 
     # Every qualifier MUST match ``^[a-z][a-z0-9_]*$`` (snake_case).

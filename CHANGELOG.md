@@ -12,18 +12,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added — classification vocabulary for ASB
 
 - All three adapters now declare `primary_domain = "epigenomics"`, a
-  `subdomains` tuple (their own `domain_id`) and a `techniques` tuple.
-  ASB's classification layer unions these from every installed adapter
+  `subdomains` tuple and a `techniques` tuple. ASB's classification layer
+  unions these from every installed adapter
   (`agentic_science_builder.classification._adapter_vocab`); until now the
   adapters declared none, so an epigenomics paper classified as "other" and
   carried no technique at all.
-- `techniques` is derived from `_ASSAY_TABLE`, filtered on each adapter's
-  `assay_class`, rather than hand-listed, so the vocabulary cannot drift from
-  the resolver. `_AssaySpec` gains an optional `slug` field for the rows whose
-  conventional short form differs from the spelled-out label (`wgbs`, `rrbs`,
-  the four array products); every other token is derived from the label.
+- Both vocabularies are the 2026-08-25 cross-domain audit's set, split into
+  disjoint slices across the three siblings: terms two sciences both declared
+  (`mass-spectrometry`, `sequence-assembly`, `amplicon-sequencing`, ...) were
+  dropped everywhere, since a shared term cannot tell the sciences apart.
+- `techniques` is served by `techniques_for_class()` from a new
+  `_AUDITED_TECHNIQUES` table in `_assays`, no longer derived from
+  `_ASSAY_TABLE`: the resolver stays wider on purpose, so assay names whose
+  tokens left the classification vocabulary (DNase-seq, MNase-seq, EM-seq,
+  EPIC v2, the single-cell methylation protocols) still resolve to a CURIE.
 - New public helpers in `_assays`: `techniques_for_class()` and
-  `ASSAY_TECHNIQUES_BY_CLASS`.
+  `ASSAY_TECHNIQUES_BY_CLASS` (the resolver inventory, kept as its own view).
 
 ### Added — SEMAPV mapping-justifications (indicium-adapters A-convention)
 

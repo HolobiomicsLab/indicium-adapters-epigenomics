@@ -190,12 +190,21 @@ def test_primary_domain_is_epigenomics(cls):
 
 
 @pytest.mark.parametrize(
-    "cls, expected_domain_id",
-    [(c, d) for c, d, _ in _ADAPTERS],
+    "cls",
+    [c for c, _, _ in _ADAPTERS],
     ids=[c.__name__ for c, _, _ in _ADAPTERS],
 )
-def test_subdomain_is_the_adapters_own_domain_id(cls, expected_domain_id):
-    assert cls.subdomains == (expected_domain_id,)
+def test_subdomains_are_nonempty_slugs(cls):
+    """Each adapter carries a slice of the audited epigenomics subdomains."""
+    assert cls.subdomains, f"{cls.__name__} declares no subdomains"
+    for subdomain in cls.subdomains:
+        assert _SLUG_RE.match(subdomain), f"{subdomain!r} is not a lowercase slug"
+
+
+def test_subdomains_are_claimed_by_one_adapter_each():
+    """Siblings split the subdomain vocabulary rather than overlapping on it."""
+    declared = [s for c, _, _ in _ADAPTERS for s in c.subdomains]
+    assert len(declared) == len(set(declared)), "a subdomain is claimed twice"
 
 
 @pytest.mark.parametrize(
@@ -210,25 +219,23 @@ def test_techniques_are_nonempty_slugs(cls):
         assert _SLUG_RE.match(technique), f"{technique!r} is not a lowercase slug"
 
 
-def test_techniques_partition_the_assay_table():
-    """Every assay row reaches exactly one adapter, and none is invented.
+def test_techniques_partition_the_audited_vocabulary():
+    """Every audited token reaches exactly one adapter, and none is invented.
 
-    This is what stops the vocabulary drifting from the resolver: a row added
-    to the table with a new ``assay_class`` fails here rather than silently
-    going unclassified.
+    The 2026-08-25 cross-domain audit, not the resolver table, is the source:
+    the table still resolves assay names whose tokens no longer separate the
+    sciences that shared them.
     """
-    from indicium_adapters_epigenomics._assays import (
-        _ASSAY_TABLE,
-        _technique_slug,
-    )
+    from indicium_adapters_epigenomics._assays import _AUDITED_TECHNIQUES
 
     declared = [t for c, _, _ in _ADAPTERS for t in c.techniques]
     assert len(declared) == len(set(declared)), "a technique is claimed twice"
-    assert set(declared) == {_technique_slug(s) for s in _ASSAY_TABLE}
+    audited = {t for tokens in _AUDITED_TECHNIQUES.values() for t in tokens}
+    assert set(declared) == audited
 
 
 def test_spelled_out_assays_use_their_conventional_short_form():
     """WGBS and RRBS enter the vocabulary as acronyms, not as their long labels."""
     bulk = set(BulkEpigenomicsAdapter.techniques)
     assert {"wgbs", "rrbs"} <= bulk
-    assert not [t for t in bulk if "bisulfite" in t]
+    assert not [t for t in bulk if t.endswith("-bisulfite-sequencing")]

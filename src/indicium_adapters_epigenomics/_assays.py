@@ -266,10 +266,10 @@ ASSAY_LABEL_TO_CURIE: Final[MappingProxyType[str, str]] = MappingProxyType(
 # --- classification vocabulary ---------------------------------------------
 # ASB's classification layer unions every installed adapter's ``techniques``
 # into its controlled vocabulary (see
-# agentic_science_builder.classification._adapter_vocab). Deriving the tokens
-# from the assay table rather than hand-listing them keeps the vocabulary the
-# field's own: a row added here reaches ASB with the next release, and no
-# second list can drift away from the resolver.
+# agentic_science_builder.classification._adapter_vocab). Two views live here
+# and are deliberately no longer the same set: ``ASSAY_TECHNIQUES_BY_CLASS``
+# tracks the resolver table (what this package can look up), while
+# ``techniques_for_class`` serves the audited tokens ASB classifies on.
 
 _NON_SLUG_CHARS: Final[re.Pattern[str]] = re.compile(r"[^a-z0-9]+")
 
@@ -292,14 +292,51 @@ def _group_techniques() -> dict[str, tuple[str, ...]]:
     return {name: tuple(sorted(slugs)) for name, slugs in grouped.items()}
 
 
+# Resolver inventory: the assay names this package can look up.
 ASSAY_TECHNIQUES_BY_CLASS: Final[MappingProxyType[str, tuple[str, ...]]] = (
     MappingProxyType(_group_techniques())
 )
 
+# Set by the 2026-08-25 cross-domain vocabulary audit; terms two sciences both
+# declared were dropped, because a shared term tells neither of them apart.
+_AUDITED_TECHNIQUES: Final[MappingProxyType[str, tuple[str, ...]]] = (
+    MappingProxyType({
+        "bulk_sequencing": (
+            "bisulfite-sequencing",
+            "wgbs",
+            "rrbs",
+            "methylated-dna-immunoprecipitation",
+            "medip-seq",
+            "tab-seq",
+            "nome-seq",
+            "chip-seq",
+            "chip-on-chip",
+            "cut-run",
+            "cut-tag",
+            "damid",
+            "atac-seq",
+            "chromosome-conformation-capture",
+            "hi-c",
+            "capture-hi-c",
+            "micro-c",
+            "hichip",
+            "chia-pet",
+        ),
+        "array": (
+            "methylation-450k",
+            "methylation-epic",
+        ),
+        "single_cell": (
+            "scatac-seq",
+            "schi-c",
+        ),
+    })
+)
+
 
 def techniques_for_class(assay_class: str) -> tuple[str, ...]:
-    """Sorted classification tokens for one ``assay_class``, empty if unknown."""
-    return ASSAY_TECHNIQUES_BY_CLASS.get(assay_class, ())
+    """Audited classification tokens for one ``assay_class``, empty if unknown."""
+    return _AUDITED_TECHNIQUES.get(assay_class, ())
 
 
 if __name__ == "__main__":  # pragma: no cover
