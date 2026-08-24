@@ -26,6 +26,7 @@ from typing import Final
 
 import rdflib
 
+from indicium_adapters_epigenomics._assays import techniques_for_class
 from indicium_adapters_epigenomics._namespaces import EPIGENOMICS_PREFIXES
 from indicium_adapters_epigenomics._registries import accession_to_curie
 from indicium_adapters_epigenomics._resolver import justification_for, resolve
@@ -79,6 +80,17 @@ class BulkEpigenomicsAdapter:
 
     domain_id = "bulk-epigenomics"
     api_version = 1
+
+    # ASB's classification layer reads ``primary_domain`` in preference to
+    # ``domain_id`` and unions the declared vocabulary into its controlled
+    # terms (agentic_science_builder.classification._adapter_vocab). Without
+    # it an epigenomics paper classifies as "other" and carries no technique.
+    # ``techniques`` is derived from the assay table's own rows for this
+    # adapter's ``assay_class``, so the vocabulary moves with the resolver
+    # rather than with a second hand-maintained list.
+    primary_domain = "epigenomics"
+    subdomains: tuple[str, ...] = (domain_id,)
+    techniques: tuple[str, ...] = techniques_for_class("bulk_sequencing")
 
     # Every qualifier MUST match ``^[a-z][a-z0-9_]*$`` (snake_case).
     # Required by indicium >= 1.7.0: at serialisation time, Perspicacite

@@ -29,12 +29,19 @@ from typing import Final, NamedTuple
 
 
 class _AssaySpec(NamedTuple):
-    """One assay table row."""
+    """One assay table row.
+
+    ``slug`` overrides the classification token that is otherwise derived
+    from ``label``. Set it only where the field's conventional short form
+    differs from the spelled-out name (WGBS, RRBS, the array products);
+    leaving it empty keeps the token tied to the label.
+    """
 
     pattern: re.Pattern[str]
     curie: str
     label: str
     assay_class: str  # bulk_sequencing | single_cell | array
+    slug: str = ""
 
 
 # Order matters: more-specific assays before more-general ones. The lookup
@@ -92,6 +99,7 @@ _ASSAY_TABLE: Final[tuple[_AssaySpec, ...]] = (
             re.I,
         ),
         "OBI:0001863", "whole-genome bisulfite sequencing", "bulk_sequencing",
+        slug="wgbs",
     ),
     # RRBS: EFO:0008900 verified ("RRBS").
     _AssaySpec(
@@ -101,6 +109,7 @@ _ASSAY_TABLE: Final[tuple[_AssaySpec, ...]] = (
         ),
         "EFO:0008900", "reduced representation bisulfite sequencing",
         "bulk_sequencing",
+        slug="rrbs",
     ),
     _AssaySpec(
         re.compile(r"\bEM[- ]?seq\b", re.I),
@@ -181,6 +190,7 @@ _ASSAY_TABLE: Final[tuple[_AssaySpec, ...]] = (
         ),
         "EpiAssay:HumanMethylation450",
         "Illumina HumanMethylation450 BeadChip", "array",
+        slug="methylation-450k",
     ),
     _AssaySpec(
         re.compile(
@@ -189,6 +199,7 @@ _ASSAY_TABLE: Final[tuple[_AssaySpec, ...]] = (
         ),
         "EpiAssay:MethylationEPIC-v2",
         "Illumina MethylationEPIC v2.0 BeadChip", "array",
+        slug="methylation-epic-v2",
     ),
     # MethylationEPIC (v1): OBI:0002131 verified
     # ("Illumina Infinium MethylationEPIC v1.0 BeadChip").
@@ -200,11 +211,13 @@ _ASSAY_TABLE: Final[tuple[_AssaySpec, ...]] = (
         ),
         "OBI:0002131",
         "Illumina MethylationEPIC BeadChip", "array",
+        slug="methylation-epic",
     ),
     _AssaySpec(
         re.compile(r"\bMouse\s+MethylationEPIC\b", re.I),
         "EpiAssay:Mouse-MethylationEPIC",
         "Illumina Mouse Methylation BeadChip", "array",
+        slug="methylation-mouse",
     ),
 )
 
@@ -249,3 +262,51 @@ ASSAY_INDEX: Final[AssayIndex] = AssayIndex(_ASSAY_TABLE)
 ASSAY_LABEL_TO_CURIE: Final[MappingProxyType[str, str]] = MappingProxyType(
     {spec.label: spec.curie for spec in _ASSAY_TABLE}
 )
+
+# --- classification vocabulary ---------------------------------------------
+# ASB's classification layer unions every installed adapter's ``techniques``
+# into its controlled vocabulary (see
+# agentic_science_builder.classification._adapter_vocab). Deriving the tokens
+# from the assay table rather than hand-listing them keeps the vocabulary the
+# field's own: a row added here reaches ASB with the next release, and no
+# second list can drift away from the resolver.
+
+_NON_SLUG_CHARS: Final[re.Pattern[str]] = re.compile(r"[^a-z0-9]+")
+
+
+def _slugify(label: str) -> str:
+    """Lower-cased hyphenated form of a label ("ChIP-seq" -> "chip-seq")."""
+    return _NON_SLUG_CHARS.sub("-", label.lower()).strip("-")
+
+
+def _technique_slug(spec: _AssaySpec) -> str:
+    """The classification token of one row: its explicit slug, else derived."""
+    return spec.slug or _slugify(spec.label)
+
+
+def _group_techniques() -> dict[str, tuple[str, ...]]:
+    """Assay technique tokens grouped by ``assay_class``."""
+    grouped: dict[str, set[str]] = {}
+    for spec in _ASSAY_TABLE:
+        grouped.setdefault(spec.assay_class, set()).add(_technique_slug(spec))
+    return {name: tuple(sorted(slugs)) for name, slugs in grouped.items()}
+
+
+ASSAY_TECHNIQUES_BY_CLASS: Final[MappingProxyType[str, tuple[str, ...]]] = (
+    MappingProxyType(_group_techniques())
+)
+
+
+def techniques_for_class(assay_class: str) -> tuple[str, ...]:
+    """Sorted classification tokens for one ``assay_class``, empty if unknown."""
+    return ASSAY_TECHNIQUES_BY_CLASS.get(assay_class, ())
+
+
+if __name__ == "__main__":  # pragma: no cover
+    assert ASSAY_INDEX.lookup("we ran scATAC-seq")["label"] == "scATAC-seq"
+    assert "wgbs" in techniques_for_class("bulk_sequencing")
+    assert "chip-seq" in techniques_for_class("bulk_sequencing")
+    assert "scatac-seq" in techniques_for_class("single_cell")
+    assert "methylation-epic" in techniques_for_class("array")
+    assert techniques_for_class("nope") == ()
+    print(f"{len(ASSAY_INDEX)} assays; classes: {sorted(ASSAY_TECHNIQUES_BY_CLASS)}")

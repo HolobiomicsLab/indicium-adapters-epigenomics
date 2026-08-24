@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — classification vocabulary for ASB
+
+- All three adapters now declare `primary_domain = "epigenomics"`, a
+  `subdomains` tuple (their own `domain_id`) and a `techniques` tuple.
+  ASB's classification layer unions these from every installed adapter
+  (`agentic_science_builder.classification._adapter_vocab`); until now the
+  adapters declared none, so an epigenomics paper classified as "other" and
+  carried no technique at all.
+- `techniques` is derived from `_ASSAY_TABLE`, filtered on each adapter's
+  `assay_class`, rather than hand-listed, so the vocabulary cannot drift from
+  the resolver. `_AssaySpec` gains an optional `slug` field for the rows whose
+  conventional short form differs from the spelled-out label (`wgbs`, `rrbs`,
+  the four array products); every other token is derived from the label.
+- New public helpers in `_assays`: `techniques_for_class()` and
+  `ASSAY_TECHNIQUES_BY_CLASS`.
+
 ### Added — SEMAPV mapping-justifications (indicium-adapters A-convention)
 
 - All three adapters' `enrich_claim` now populate an optional

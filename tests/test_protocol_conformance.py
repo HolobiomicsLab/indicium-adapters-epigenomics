@@ -167,3 +167,68 @@ def test_shacl_shapes_returns_a_nonempty_parsed_graph(cls):
     g = cls().shacl_shapes()
     assert isinstance(g, rdflib.Graph)
     assert len(g) > 0
+
+
+# ---------------------------------------------------------------------------
+# Classification vocabulary. ASB unions ``primary_domain`` / ``subdomains`` /
+# ``techniques`` from every installed adapter into its controlled terms
+# (agentic_science_builder.classification._adapter_vocab); an adapter that
+# declares none leaves its whole field unclassifiable.
+# ---------------------------------------------------------------------------
+
+_SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+
+@pytest.mark.parametrize(
+    "cls",
+    [c for c, _, _ in _ADAPTERS],
+    ids=[c.__name__ for c, _, _ in _ADAPTERS],
+)
+def test_primary_domain_is_epigenomics(cls):
+    """All three adapters roll up to one selectable ASB primary domain."""
+    assert cls.primary_domain == "epigenomics"
+
+
+@pytest.mark.parametrize(
+    "cls, expected_domain_id",
+    [(c, d) for c, d, _ in _ADAPTERS],
+    ids=[c.__name__ for c, _, _ in _ADAPTERS],
+)
+def test_subdomain_is_the_adapters_own_domain_id(cls, expected_domain_id):
+    assert cls.subdomains == (expected_domain_id,)
+
+
+@pytest.mark.parametrize(
+    "cls",
+    [c for c, _, _ in _ADAPTERS],
+    ids=[c.__name__ for c, _, _ in _ADAPTERS],
+)
+def test_techniques_are_nonempty_slugs(cls):
+    """Non-vacuity plus shape: hyphenated lowercase tokens, like ``chip-seq``."""
+    assert cls.techniques, f"{cls.__name__} declares no techniques"
+    for technique in cls.techniques:
+        assert _SLUG_RE.match(technique), f"{technique!r} is not a lowercase slug"
+
+
+def test_techniques_partition_the_assay_table():
+    """Every assay row reaches exactly one adapter, and none is invented.
+
+    This is what stops the vocabulary drifting from the resolver: a row added
+    to the table with a new ``assay_class`` fails here rather than silently
+    going unclassified.
+    """
+    from indicium_adapters_epigenomics._assays import (
+        _ASSAY_TABLE,
+        _technique_slug,
+    )
+
+    declared = [t for c, _, _ in _ADAPTERS for t in c.techniques]
+    assert len(declared) == len(set(declared)), "a technique is claimed twice"
+    assert set(declared) == {_technique_slug(s) for s in _ASSAY_TABLE}
+
+
+def test_spelled_out_assays_use_their_conventional_short_form():
+    """WGBS and RRBS enter the vocabulary as acronyms, not as their long labels."""
+    bulk = set(BulkEpigenomicsAdapter.techniques)
+    assert {"wgbs", "rrbs"} <= bulk
+    assert not [t for t in bulk if "bisulfite" in t]
