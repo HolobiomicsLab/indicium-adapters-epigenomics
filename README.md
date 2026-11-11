@@ -40,15 +40,12 @@ are disjoint by construction (enforced by `tests/test_composition.py`).
 
 ## Install
 
-This package is not published on PyPI; the repository is private for now. Install it from a checkout:
+This domain package is installed from a checkout. The public dependencies are
+installed from PyPI with the development extra:
 
 ```bash
-git clone <repository-url>
-cd indicium-adapters-epigenomics
-pip install -e .
+python -m pip install -e ".[dev]"
 ```
-
-The core package `indicium-adapters` (0.6.0) and its dependency `indicium-standard` are on PyPI and are installed automatically. For development, add the test tools with `pip install -e .[dev]`.
 
 ## Usage
 

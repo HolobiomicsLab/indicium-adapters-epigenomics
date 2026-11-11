@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed - release readiness (2026-11-11)
+
+- CI and development installs now use the published dependencies from PyPI.
+
 ### Added — classification vocabulary for ASB
 
 - All three adapters now declare `primary_domain = "epigenomics"`, a
@@ -44,14 +48,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   This is the companion-map convention documented by the `indicium-adapters`
   core `DomainAdapter` Protocol; downstream consumers (e.g. Perspicacité)
   promote `ontology_terms` + this map to first-class `sssom:Mapping` nodes.
-
-### Changed — local development environment
-
-- Added `[tool.uv.sources]` pinning `indicium` + `indicium-adapters` to editable
-  sibling checkouts (`../indicium`, `../indicium-adapters`), mirroring the
-  `indicium-adapters` / `-metabolomics` / `-transcriptomics` repos. Without it,
-  `uv sync` resolves `indicium>=1.7` against the unrelated PyPI `indicium`
-  package and fails. Ignored by consumers installing from the wheel.
 
 ---
 

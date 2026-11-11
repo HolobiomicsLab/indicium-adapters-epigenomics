@@ -121,8 +121,8 @@ CI matrix is 3.12 / 3.13.
 
 ## Repo relationships
 
-- Core Protocol lives in `~/git/indicium-adapters` (do not vendor it).
-- The indicium claim/evidence vocabulary lives in `~/git/indicium`.
+- Core Protocol lives in the `indicium-adapters` sibling repository (do not vendor it).
+- The indicium claim/evidence vocabulary lives in the `indicium` sibling repository.
 - Pipeline RDF validation for epigenomics workflow classes (SO / GO /
   UBERON / PR / MOD / EFO node shapes) belongs upstream in the consuming
   graph store — we do not duplicate it here.
