@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "indicium-adapters-epigenomics"
+abstract: >-
+  Epigenomics-domain DomainAdapters for the indicium ecosystem.
+version: 0.2.0
+date-released: "2026-06-01"
+license: MIT
+type: software
+repository-code: "https://github.com/HolobiomicsLab/indicium-adapters-epigenomics"
+authors:
+  - family-names: Nothias
+    given-names: Louis-Félix
+    orcid: "https://orcid.org/0000-0001-6711-6719"
+    affiliation: CNRS

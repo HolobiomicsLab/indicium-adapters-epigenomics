@@ -7,8 +7,7 @@ vocabularies — ChromHMM / Segway chromatin states (`EpiState:`),
 DNA-modification chemistries split into a dedicated index (`EpiMod:`),
 the IHEC core biosample matrix (`IHECBio:`), the ENCODE SCREEN cCRE
 classification (`EpiCCRE:`) and 3D-genome compartments (`EpiConf:`).
-See [CHANGELOG.md](CHANGELOG.md) for the full release notes and
-[ROADMAP.md](ROADMAP.md) for the §7-§11 plan.
+See [CHANGELOG.md](CHANGELOG.md) for the release notes.
 
 v0.1.0 shipped three sibling adapters:
 
@@ -26,7 +25,7 @@ v0.1.0 shipped three sibling adapters:
   snmCAT-seq (single-cell methylation), scChIP-seq / single-cell CUT&Tag,
   scNOMe-seq, and scHi-C. Resolves assay names, histone marks, chromatin
   targets, and the same accession / assembly registries as bulk; CL / UBERON
-  cell-type and tissue enrichment is on the v0.2.0 roadmap.
+  cell-type and tissue enrichment is planned for a later release.
 - **`MethylationArrayEpigenomicsAdapter`** — Illumina methylation array claims
   covering the 450K, EPIC v1, EPIC v2, and MethylationEPIC mouse arrays.
   Resolves array-platform names to verified OBI CURIE (`OBI:0002131` for
@@ -108,7 +107,7 @@ API. **Local-namespace CURIEs** are minted by this package for concepts
 without a stable upstream term and are clearly prefixed so consumers do not
 mistake them for authoritative IDs.
 
-| Bucket | Live source | Coverage in v0.1.0 |
+| Bucket | Live source | Coverage in v0.2.0 |
 | --- | --- | --- |
 | `UniProt:` | UniProt REST | 107 chromatin targets + 5 histone variants |
 | `RefSeq:` | NCBI Datasets v2 + Entrez eutils | 7 human + mouse assemblies |
@@ -124,7 +123,7 @@ mistake them for authoritative IDs.
 Local-namespace CURIEs are documented in `_namespaces.py` and described in
 `_histone_marks.py` / `_assays.py` / `_qc_metrics.py`. They are slated for
 promotion to the corresponding upstream prefix when upstream coverage of the
-concept becomes available — see `ROADMAP.md` for the upgrade path.
+concept becomes available.
 
 Two large bundled snapshots are refreshed by maintainer scripts:
 
@@ -156,3 +155,5 @@ whether a feature belongs in this adapter at all.
 ## License
 
 MIT — see `LICENSE`.
+
+Cite this package with `CITATION.cff`.
